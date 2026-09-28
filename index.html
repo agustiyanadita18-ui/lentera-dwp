@@ -2,149 +2,322 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1565c0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#075985">
+<meta name="description" content="Pusat Informasi Digital LENTERA DWP SMAN 1 Ngronggot">
 
 <title>LENTERA DWP SMAN 1 Ngronggot</title>
 
 <style>
+:root{
+  --blue:#075985;
+  --blue2:#0ea5e9;
+  --blue3:#e0f2fe;
+  --navy:#0f2942;
+  --white:#fff;
+  --bg:#f4f8fc;
+  --text:#17324d;
+  --muted:#6b8194;
+  --line:#e4edf4;
+  --green:#16835b;
+  --orange:#e98b20;
+  --shadow:0 8px 25px rgba(15,41,66,.08);
+  --radius:20px;
+}
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f3f7fb;
-  color:#263238;
-  padding-bottom:80px;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  padding-bottom:88px;
 }
 
 button,
 input,
 select{
-  font-family:inherit;
+  font:inherit;
 }
 
 button{
   cursor:pointer;
 }
 
-/* =========================
-   TOP BAR
-========================= */
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ==============================
+   HEADER
+============================== */
 
 .topbar{
   position:sticky;
   top:0;
   z-index:1000;
-  height:60px;
-  background:#1565c0;
+  height:64px;
+  background:rgba(7,89,133,.97);
+  backdrop-filter:blur(12px);
   color:white;
   display:flex;
   align-items:center;
+  padding:0 18px;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.topbar-inner{
+  width:100%;
+  max-width:760px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-small{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:rgba(255,255,255,.18);
+  display:flex;
+  align-items:center;
   justify-content:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  font-size:22px;
+}
+
+.topbar-text{
+  line-height:1.2;
 }
 
 .topbar-title{
-  font-size:18px;
-  font-weight:bold;
+  font-weight:800;
+  font-size:15px;
 }
 
-/* =========================
+.topbar-subtitle{
+  font-size:10px;
+  opacity:.82;
+  margin-top:3px;
+}
+
+/* ==============================
    CONTAINER
-========================= */
+============================== */
 
 .container{
   width:100%;
-  max-width:700px;
+  max-width:760px;
   margin:auto;
-  padding:15px;
+  padding:18px;
 }
 
-/* =========================
+/* ==============================
    PAGE
-========================= */
+============================== */
 
 .page{
   display:none;
+  animation:pageIn .25s ease;
 }
 
 .page.active{
   display:block;
 }
 
-/* =========================
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(7px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ==============================
    HERO
-========================= */
+============================== */
 
 .hero{
-  background:linear-gradient(135deg,#1565c0,#42a5f5);
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #064e72 0%,
+      #075985 48%,
+      #0ea5e9 100%
+    );
   color:white;
-  border-radius:20px;
-  padding:25px 20px;
-  margin-bottom:18px;
-  box-shadow:0 5px 15px rgba(21,101,192,.25);
+  border-radius:28px;
+  padding:27px 23px;
+  min-height:220px;
+  box-shadow:
+    0 12px 30px rgba(7,89,133,.22);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  right:-55px;
+  top:-55px;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:rgba(255,255,255,.06);
+  right:65px;
+  bottom:-55px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.18);
+  padding:7px 11px;
+  border-radius:30px;
+  font-size:11px;
+  margin-bottom:17px;
 }
 
 .hero h1{
-  font-size:24px;
-  margin-bottom:8px;
+  font-size:32px;
+  letter-spacing:.5px;
+  margin-bottom:5px;
+}
+
+.hero h2{
+  font-size:14px;
+  font-weight:600;
+  opacity:.94;
+  margin-bottom:13px;
 }
 
 .hero p{
-  font-size:14px;
-  line-height:1.6;
+  font-size:13px;
+  line-height:1.7;
+  max-width:550px;
+  opacity:.9;
 }
 
-/* =========================
-   CARD
-========================= */
+.hero-quote{
+  margin-top:18px;
+  font-size:12px;
+  font-weight:600;
+  opacity:.92;
+}
 
-.card{
+/* ==============================
+   STATISTICS
+============================== */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:-25px;
+  position:relative;
+  z-index:5;
+  padding:0 10px;
+}
+
+.stat{
   background:white;
-  border-radius:16px;
-  padding:18px;
-  margin-bottom:15px;
-  box-shadow:0 2px 10px rgba(0,0,0,.07);
+  border-radius:17px;
+  padding:14px 8px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
 }
 
-.card h2{
-  color:#1565c0;
-  font-size:19px;
-  margin-bottom:10px;
+.stat-number{
+  color:var(--blue);
+  font-size:20px;
+  font-weight:800;
 }
 
-.card h3{
-  font-size:17px;
-  margin-bottom:7px;
+.stat-label{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
 }
 
-.card p{
-  font-size:14px;
-  line-height:1.6;
-  color:#546e7a;
+/* ==============================
+   SECTION HEADER
+============================== */
+
+.section{
+  margin-top:25px;
 }
 
-/* =========================
-   MENU HOME
-========================= */
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.section-title{
+  font-size:18px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+.section-subtitle{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* ==============================
+   MENU
+============================== */
 
 .menu-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:11px;
 }
 
 .menu-card{
+  position:relative;
+  overflow:hidden;
   background:white;
-  border-radius:16px;
-  padding:20px 12px;
-  text-align:center;
-  box-shadow:0 2px 9px rgba(0,0,0,.07);
-  border:1px solid #e8eef4;
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:18px 14px;
+  min-height:135px;
+  box-shadow:0 5px 16px rgba(15,41,66,.055);
   transition:.2s;
 }
 
@@ -153,123 +326,261 @@ button{
 }
 
 .menu-icon{
-  font-size:32px;
-  margin-bottom:9px;
+  width:47px;
+  height:47px;
+  border-radius:15px;
+  background:var(--blue3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  margin-bottom:13px;
+}
+
+.menu-card:nth-child(2) .menu-icon{
+  background:#eaf7ef;
+}
+
+.menu-card:nth-child(3) .menu-icon{
+  background:#fff4df;
+}
+
+.menu-card:nth-child(4) .menu-icon{
+  background:#f3eafe;
 }
 
 .menu-card h3{
-  font-size:15px;
-  color:#1565c0;
+  color:var(--navy);
+  font-size:14px;
+  line-height:1.3;
 }
 
 .menu-card p{
-  font-size:12px;
-  color:#78909c;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
   margin-top:5px;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
-.btn{
-  display:inline-block;
-  border:none;
-  border-radius:10px;
-  padding:10px 15px;
-  background:#1565c0;
-  color:white;
-  text-decoration:none;
+.menu-arrow{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  color:#a5b5c2;
   font-size:14px;
-  margin-top:10px;
 }
 
-.btn:hover{
-  background:#0d47a1;
+/* ==============================
+   INFORMATION CARD
+============================== */
+
+.info-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:17px;
+  box-shadow:var(--shadow);
 }
 
-.btn-secondary{
-  background:#e3f2fd;
-  color:#1565c0;
+.info-card-inner{
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
 }
 
-/* =========================
+.info-icon{
+  width:43px;
+  height:43px;
+  min-width:43px;
+  border-radius:13px;
+  background:#e0f2fe;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.info-card h3{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.info-card p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* ==============================
+   PAGE TITLE
+============================== */
+
+.page-title{
+  margin:5px 0 19px;
+}
+
+.page-title-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.page-title-icon{
+  width:48px;
+  height:48px;
+  min-width:48px;
+  border-radius:15px;
+  background:var(--blue3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+.page-title h1{
+  font-size:22px;
+  color:var(--navy);
+}
+
+.page-title p{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+/* ==============================
    SEARCH
-========================= */
+============================== */
+
+.search-wrap{
+  background:white;
+  padding:10px;
+  border-radius:17px;
+  border:1px solid var(--line);
+  box-shadow:0 5px 15px rgba(15,41,66,.05);
+  margin-bottom:10px;
+}
 
 .search-box{
   position:relative;
-  margin-bottom:12px;
 }
 
 .search-box input{
   width:100%;
-  padding:13px 15px;
-  border:1px solid #d5e0e8;
+  height:46px;
+  border:0;
+  outline:0;
   border-radius:12px;
-  outline:none;
-  background:white;
-  font-size:14px;
+  background:#f4f8fb;
+  padding:0 15px 0 43px;
+  font-size:13px;
+  color:var(--text);
 }
 
-.search-box input:focus{
-  border-color:#1565c0;
+.search-box::before{
+  content:"🔎";
+  position:absolute;
+  left:14px;
+  top:13px;
+  font-size:16px;
+  z-index:2;
 }
 
-/* =========================
+/* ==============================
    FILTER
-========================= */
+============================== */
 
 .filter-row{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:15px;
+  gap:8px;
+  margin-bottom:13px;
 }
 
 .filter-row select{
+  height:42px;
   width:100%;
-  padding:11px;
-  border:1px solid #d5e0e8;
-  border-radius:10px;
+  border:1px solid var(--line);
   background:white;
+  border-radius:11px;
+  padding:0 9px;
+  color:#526b7d;
+  font-size:11px;
   outline:none;
 }
 
-/* =========================
-   BOOK ITEM
-========================= */
+/* ==============================
+   DATA INFO
+============================== */
+
+.data-info{
+  background:#e9f6fd;
+  border:1px solid #d4edf9;
+  color:#12618a;
+  padding:10px 12px;
+  border-radius:11px;
+  font-size:11px;
+  margin-bottom:11px;
+}
+
+/* ==============================
+   BOOK
+============================== */
 
 .book-item{
   background:white;
-  border-radius:14px;
+  border:1px solid var(--line);
+  border-radius:17px;
   padding:15px;
   margin-bottom:10px;
-  border:1px solid #e6edf2;
-  box-shadow:0 2px 7px rgba(0,0,0,.05);
+  box-shadow:0 4px 13px rgba(15,41,66,.045);
+  transition:.18s;
+}
+
+.book-item:active{
+  transform:scale(.985);
+}
+
+.book-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
 .book-code{
-  display:inline-block;
-  font-size:11px;
-  background:#e3f2fd;
-  color:#1565c0;
-  padding:4px 8px;
+  display:inline-flex;
+  align-items:center;
+  background:#e7f4fb;
+  color:#08608a;
   border-radius:20px;
+  padding:4px 8px;
+  font-size:9px;
+  font-weight:700;
   margin-bottom:8px;
 }
 
 .book-title{
-  font-weight:bold;
-  color:#263238;
-  font-size:16px;
+  color:var(--navy);
+  font-size:15px;
+  font-weight:800;
+  line-height:1.4;
   margin-bottom:6px;
 }
 
 .book-info{
-  font-size:13px;
-  color:#607d8b;
-  line-height:1.6;
+  color:#708596;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.book-category{
+  display:inline-block;
+  background:#f2f7fa;
+  color:#5b7181;
+  border-radius:20px;
+  padding:4px 8px;
+  font-size:9px;
+  margin-top:8px;
 }
 
 .book-status{
@@ -277,106 +588,234 @@ button{
   margin-top:8px;
   padding:4px 8px;
   border-radius:20px;
-  font-size:11px;
-  background:#e8f5e9;
-  color:#2e7d32;
+  font-size:9px;
+  background:#e8f6ee;
+  color:#16835b;
 }
 
-/* =========================
-   EBOOK / REKOMENDASI
-========================= */
+/* ==============================
+   RESOURCE
+============================== */
 
 .resource-item{
   display:flex;
-  gap:13px;
+  gap:12px;
   background:white;
-  border-radius:15px;
+  border:1px solid var(--line);
+  border-radius:18px;
   padding:15px;
-  margin-bottom:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  margin-bottom:11px;
+  box-shadow:0 4px 13px rgba(15,41,66,.05);
 }
 
 .resource-icon{
   width:48px;
   height:48px;
   min-width:48px;
-  border-radius:12px;
-  background:#e3f2fd;
+  border-radius:15px;
+  background:var(--blue3);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:25px;
+  font-size:24px;
 }
 
 .resource-content{
+  min-width:0;
   flex:1;
 }
 
 .resource-content h3{
-  font-size:16px;
-  color:#1565c0;
+  color:var(--navy);
+  font-size:14px;
+  line-height:1.4;
   margin-bottom:5px;
 }
 
 .resource-content p{
-  font-size:13px;
-  line-height:1.5;
-  color:#607d8b;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6;
 }
 
 .resource-category{
   display:inline-block;
-  font-size:11px;
-  padding:3px 7px;
-  background:#f1f8e9;
-  color:#558b2f;
-  border-radius:20px;
   margin-top:7px;
+  padding:4px 8px;
+  border-radius:20px;
+  background:#fff4df;
+  color:#a8660d;
+  font-size:9px;
 }
 
-/* =========================
+.open-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  background:var(--blue);
+  color:white;
+  padding:9px 12px;
+  border-radius:10px;
+  font-size:10px;
+  font-weight:700;
+  margin-top:10px;
+}
+
+.open-btn:active{
+  transform:scale(.97);
+}
+
+/* ==============================
+   ADMIN
+============================== */
+
+.admin-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:11px;
+  box-shadow:0 4px 13px rgba(15,41,66,.05);
+}
+
+.admin-card-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--navy);
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.admin-card-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:#e0f2fe;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.admin-card p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+  margin-left:48px;
+}
+
+/* ==============================
    DETAIL
-========================= */
+============================== */
+
+.back-btn{
+  border:0;
+  background:white;
+  color:var(--blue);
+  padding:9px 12px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:700;
+  border:1px solid var(--line);
+  margin-bottom:12px;
+}
+
+.detail-card{
+  background:white;
+  border-radius:21px;
+  border:1px solid var(--line);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.detail-cover{
+  width:80px;
+  height:80px;
+  background:linear-gradient(135deg,#075985,#0ea5e9);
+  color:white;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  margin-bottom:14px;
+}
 
 .detail-title{
-  font-size:22px;
-  color:#1565c0;
-  margin-bottom:15px;
+  color:var(--navy);
+  font-size:21px;
+  line-height:1.35;
+  font-weight:800;
+  margin-bottom:16px;
 }
 
 .detail-row{
-  padding:10px 0;
-  border-bottom:1px solid #edf1f4;
+  padding:11px 0;
+  border-bottom:1px solid #edf2f6;
+}
+
+.detail-row:last-child{
+  border-bottom:0;
 }
 
 .detail-label{
-  font-size:12px;
-  color:#78909c;
+  color:#8a9ba8;
+  font-size:10px;
+  margin-bottom:4px;
 }
 
 .detail-value{
-  font-size:15px;
-  margin-top:3px;
+  color:var(--text);
+  font-size:13px;
 }
 
-/* =========================
+/* ==============================
+   EMPTY
+============================== */
+
+.empty{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:35px 18px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.empty-icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.empty p{
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* ==============================
    LOADING
-========================= */
+============================== */
 
 .loading{
+  background:white;
+  border-radius:18px;
+  padding:35px;
   text-align:center;
-  padding:35px 10px;
-  color:#607d8b;
+  color:var(--muted);
+  font-size:12px;
 }
 
 .spinner{
-  width:35px;
-  height:35px;
-  border:4px solid #e3f2fd;
-  border-top-color:#1565c0;
+  width:32px;
+  height:32px;
+  border:3px solid #dceef8;
+  border-top-color:var(--blue);
   border-radius:50%;
-  animation:spin 1s linear infinite;
-  margin:0 auto 12px;
+  animation:spin .8s linear infinite;
+  margin:0 auto 11px;
 }
 
 @keyframes spin{
@@ -385,98 +824,82 @@ button{
   }
 }
 
-/* =========================
-   EMPTY
-========================= */
-
-.empty{
-  text-align:center;
-  padding:30px 15px;
-  color:#78909c;
-  background:white;
-  border-radius:15px;
-}
-
-.empty-icon{
-  font-size:38px;
-  margin-bottom:10px;
-}
-
-/* =========================
+/* ==============================
    ERROR
-========================= */
+============================== */
 
 .error-box{
-  background:#ffebee;
-  color:#c62828;
-  padding:14px;
-  border-radius:12px;
-  margin-bottom:15px;
-  font-size:13px;
-  line-height:1.5;
+  background:#fff1f2;
+  border:1px solid #ffd8dd;
+  color:#b42332;
+  border-radius:13px;
+  padding:12px;
+  font-size:11px;
+  line-height:1.6;
 }
 
-/* =========================
-   STATUS DATA
-========================= */
-
-.data-info{
-  background:#e3f2fd;
-  color:#1565c0;
-  padding:10px 13px;
-  border-radius:10px;
-  font-size:12px;
-  margin-bottom:12px;
-}
-
-/* =========================
+/* ==============================
    BOTTOM NAV
-========================= */
+============================== */
 
 .bottom-nav{
   position:fixed;
+  z-index:1000;
   bottom:0;
   left:0;
   right:0;
-  z-index:1000;
-  height:68px;
-  background:white;
-  border-top:1px solid #e5e5e5;
+  height:74px;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(15px);
+  border-top:1px solid var(--line);
   display:flex;
-  justify-content:space-around;
-  box-shadow:0 -3px 12px rgba(0,0,0,.08);
+  box-shadow:0 -5px 20px rgba(15,41,66,.08);
 }
 
 .nav-btn{
   flex:1;
-  border:none;
-  background:white;
-  color:#78909c;
-  font-size:11px;
+  border:0;
+  background:transparent;
+  color:#8a9aa7;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:3px;
+  gap:4px;
+  font-size:9px;
+  font-weight:600;
 }
 
 .nav-btn span{
-  font-size:23px;
+  font-size:22px;
+  line-height:1;
 }
 
 .nav-btn.active{
-  color:#1565c0;
-  font-weight:bold;
+  color:var(--blue);
 }
 
-/* =========================
+.nav-btn.active span{
+  transform:translateY(-1px);
+}
+
+/* ==============================
    DESKTOP
-========================= */
+============================== */
 
 @media(min-width:700px){
 
   .container{
-    padding:25px;
+    padding:25px 20px;
+  }
+
+  .hero{
+    min-height:250px;
+    padding:35px;
+  }
+
+  .hero h1{
+    font-size:38px;
   }
 
   .menu-grid{
@@ -484,289 +907,718 @@ button{
   }
 
   .bottom-nav{
-    max-width:700px;
+    max-width:760px;
     left:50%;
+    right:auto;
+    width:100%;
     transform:translateX(-50%);
-    border-radius:18px 18px 0 0;
+    border-radius:20px 20px 0 0;
   }
+
+}
+
+/* ==============================
+   SMALL PHONE
+============================== */
+
+@media(max-width:360px){
+
+  .container{
+    padding:13px;
+  }
+
+  .hero{
+    padding:22px 18px;
+  }
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .menu-grid{
+    gap:8px;
+  }
+
+  .menu-card{
+    padding:15px 11px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-title">📚 LENTERA DWP SMAN 1 Ngronggot</div>
-</div>
+<!-- ==================================================
+     TOP BAR
+================================================== -->
 
-<!-- =========================
+<header class="topbar">
+
+  <div class="topbar-inner">
+
+    <div class="logo-small">
+      📚
+    </div>
+
+    <div class="topbar-text">
+
+      <div class="topbar-title">
+        LENTERA
+      </div>
+
+      <div class="topbar-subtitle">
+        DWP SMAN 1 Ngronggot
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ==================================================
      HOME
-========================= -->
+================================================== -->
 
-<div id="home" class="page active">
+<section id="home" class="page active">
+
   <div class="container">
 
     <div class="hero">
-      <h1>📚 LENTERA</h1>
-      <p>
-        Pojok Baca LENTERA DWP SMAN 1 Ngronggot
-        <br>
-        Pusat informasi dan literasi digital.
-      </p>
-    </div>
 
-    <div id="homeDataInfo"></div>
+      <div class="hero-content">
 
-    <div class="menu-grid">
-
-      <div class="menu-card" onclick="show('admin')">
-        <div class="menu-icon">⚙️</div>
-        <h3>Administrasi & Inovasi</h3>
-        <p>Informasi kegiatan LENTERA</p>
-      </div>
-
-      <div class="menu-card" onclick="show('ebook')">
-        <div class="menu-icon">📖</div>
-        <h3>E-Book</h3>
-        <p>Koleksi bacaan digital</p>
-      </div>
-
-      <div class="menu-card" onclick="show('catalog')">
-        <div class="menu-icon">📚</div>
-        <h3>Katalog Buku</h3>
-        <p>Cari koleksi buku LENTERA</p>
-      </div>
-
-      <div class="menu-card" onclick="show('rekom')">
-        <div class="menu-icon">💡</div>
-        <h3>Rekomendasi Digital</h3>
-        <p>Sumber belajar pilihan</p>
-      </div>
-
-    </div>
-
-    <div class="card" style="margin-top:15px;">
-      <h2>✨ Selamat Datang</h2>
-      <p id="homeInfo">
-        Selamat datang di Pusat Informasi Digital LENTERA.
-      </p>
-    </div>
-
-  </div>
-</div>
-
-<!-- =========================
-     ADMIN
-========================= -->
-
-<div id="admin" class="page">
-  <div class="container">
-
-    <div class="card">
-      <h2>⚙️ Administrasi & Inovasi</h2>
-      <div id="adminContent">
-        <div class="loading">
-          Memuat informasi...
+        <div class="hero-badge">
+          ✨ PUSAT INFORMASI DIGITAL
         </div>
+
+        <h1>
+          LENTERA
+        </h1>
+
+        <h2>
+          DWP SMAN 1 Ngronggot
+        </h2>
+
+        <p>
+          Ruang literasi, informasi, dan inovasi
+          untuk mendukung budaya membaca dan
+          belajar di lingkungan sekolah.
+        </p>
+
+        <div class="hero-quote">
+          📖 Membaca • Berkarya • Berinovasi
+        </div>
+
       </div>
+
+    </div>
+
+
+    <!-- STATISTIK -->
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <div
+          class="stat-number"
+          id="statBooks"
+        >
+          0
+        </div>
+
+        <div class="stat-label">
+          Koleksi Buku
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div
+          class="stat-number"
+          id="statEbook"
+        >
+          0
+        </div>
+
+        <div class="stat-label">
+          E-Book
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div
+          class="stat-number"
+          id="statRekom"
+        >
+          0
+        </div>
+
+        <div class="stat-label">
+          Rekomendasi
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <div class="section">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-title">
+            Jelajahi LENTERA
+          </div>
+
+          <div class="section-subtitle">
+            Pilih layanan yang ingin Anda kunjungi
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="menu-grid">
+
+
+        <div
+          class="menu-card"
+          onclick="show('admin')"
+        >
+
+          <div class="menu-icon">
+            ⚙️
+          </div>
+
+          <h3>
+            Administrasi & Inovasi
+          </h3>
+
+          <p>
+            Informasi kegiatan dan inovasi LENTERA
+          </p>
+
+          <div class="menu-arrow">
+            ›
+          </div>
+
+        </div>
+
+
+        <div
+          class="menu-card"
+          onclick="show('ebook')"
+        >
+
+          <div class="menu-icon">
+            📖
+          </div>
+
+          <h3>
+            E-Book
+          </h3>
+
+          <p>
+            Koleksi bacaan digital
+          </p>
+
+          <div class="menu-arrow">
+            ›
+          </div>
+
+        </div>
+
+
+        <div
+          class="menu-card"
+          onclick="show('catalog')"
+        >
+
+          <div class="menu-icon">
+            📚
+          </div>
+
+          <h3>
+            Katalog Buku
+          </h3>
+
+          <p>
+            Temukan koleksi buku LENTERA
+          </p>
+
+          <div class="menu-arrow">
+            ›
+          </div>
+
+        </div>
+
+
+        <div
+          class="menu-card"
+          onclick="show('rekom')"
+        >
+
+          <div class="menu-icon">
+            💡
+          </div>
+
+          <h3>
+            Rekomendasi Digital
+          </h3>
+
+          <p>
+            Sumber belajar pilihan
+          </p>
+
+          <div class="menu-arrow">
+            ›
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- INFORMASI -->
+
+    <div class="section">
+
+      <div class="info-card">
+
+        <div class="info-card-inner">
+
+          <div class="info-icon">
+            💙
+          </div>
+
+          <div>
+
+            <h3>
+              Selamat Datang di LENTERA
+            </h3>
+
+            <p id="homeInfo">
+              Memuat informasi...
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
-</div>
 
-<!-- =========================
-     EBOOK
-========================= -->
+</section>
 
-<div id="ebook" class="page">
+
+<!-- ==================================================
+     ADMIN
+================================================== -->
+
+<section id="admin" class="page">
+
   <div class="container">
 
-    <div class="card">
-      <h2>📖 E-Book</h2>
-      <p>Koleksi bacaan digital LENTERA.</p>
+    <div class="page-title">
+
+      <div class="page-title-row">
+
+        <div class="page-title-icon">
+          ⚙️
+        </div>
+
+        <div>
+
+          <h1>
+            Administrasi & Inovasi
+          </h1>
+
+          <p>
+            Informasi dan inovasi LENTERA
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
+
+
+    <div id="adminContent">
+
+      <div class="loading">
+
+        <div class="spinner"></div>
+
+        Memuat informasi...
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     EBOOK
+================================================== -->
+
+<section id="ebook" class="page">
+
+  <div class="container">
+
+    <div class="page-title">
+
+      <div class="page-title-row">
+
+        <div class="page-title-icon">
+          📖
+        </div>
+
+        <div>
+
+          <h1>
+            E-Book
+          </h1>
+
+          <p>
+            Koleksi bacaan digital LENTERA
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
 
     <div id="ebookContent">
+
       <div class="loading">
+
+        <div class="spinner"></div>
+
         Memuat e-book...
+
       </div>
+
     </div>
 
   </div>
-</div>
 
-<!-- =========================
-     CATALOG
-========================= -->
+</section>
 
-<div id="catalog" class="page">
+
+<!-- ==================================================
+     KATALOG
+================================================== -->
+
+<section id="catalog" class="page">
+
   <div class="container">
 
-    <div class="card">
-      <h2>📚 Katalog Buku</h2>
-      <p>
-        Cari dan lihat koleksi buku LENTERA DWP SMAN 1 Ngronggot.
-      </p>
+    <div class="page-title">
+
+      <div class="page-title-row">
+
+        <div class="page-title-icon">
+          📚
+        </div>
+
+        <div>
+
+          <h1>
+            Katalog Buku
+          </h1>
+
+          <p>
+            Koleksi buku LENTERA DWP SMAN 1 Ngronggot
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="search-box">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="🔎 Cari judul, penulis, kode..."
-        oninput="filterBooks()"
-      >
+
+    <div class="search-wrap">
+
+      <div class="search-box">
+
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Cari judul, penulis, kode buku..."
+          oninput="filterBooks()"
+        >
+
+      </div>
+
     </div>
+
 
     <div class="filter-row">
 
-      <select id="categoryFilter" onchange="filterBooks()">
-        <option value="">Semua Kategori</option>
+      <select
+        id="categoryFilter"
+        onchange="filterBooks()"
+      >
+
+        <option value="">
+          Semua Kategori
+        </option>
+
       </select>
 
-      <select id="statusFilter" onchange="filterBooks()">
-        <option value="">Semua Status</option>
+
+      <select
+        id="statusFilter"
+        onchange="filterBooks()"
+      >
+
+        <option value="">
+          Semua Status
+        </option>
+
       </select>
 
     </div>
+
 
     <div id="catalogInfo"></div>
 
+
     <div id="catalogContent">
+
       <div class="loading">
+
+        <div class="spinner"></div>
+
         Memuat katalog...
+
       </div>
+
     </div>
 
   </div>
-</div>
 
-<!-- =========================
+</section>
+
+
+<!-- ==================================================
      DETAIL
-========================= -->
+================================================== -->
 
-<div id="detail" class="page">
+<section id="detail" class="page">
+
   <div class="container">
 
-    <button class="btn btn-secondary" onclick="show('catalog')">
-      ← Kembali ke Katalog
+    <button
+      class="back-btn"
+      onclick="show('catalog')"
+    >
+      ← Kembali ke katalog
     </button>
 
-    <div id="detailContent" style="margin-top:15px;"></div>
+
+    <div id="detailContent"></div>
 
   </div>
-</div>
 
-<!-- =========================
+</section>
+
+
+<!-- ==================================================
      REKOMENDASI
-========================= -->
+================================================== -->
 
-<div id="rekom" class="page">
+<section id="rekom" class="page">
+
   <div class="container">
 
-    <div class="card">
-      <h2>💡 Rekomendasi Digital</h2>
-      <p>
-        Sumber belajar dan literasi digital pilihan LENTERA.
-      </p>
+    <div class="page-title">
+
+      <div class="page-title-row">
+
+        <div class="page-title-icon">
+          💡
+        </div>
+
+        <div>
+
+          <h1>
+            Rekomendasi Digital
+          </h1>
+
+          <p>
+            Sumber belajar pilihan LENTERA
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
+
     <div id="rekomContent">
+
       <div class="loading">
+
+        <div class="spinner"></div>
+
         Memuat rekomendasi...
+
       </div>
+
     </div>
 
   </div>
-</div>
 
-<!-- =========================
-     BOTTOM NAV
-========================= -->
+</section>
 
-<div class="bottom-nav">
 
-  <button class="nav-btn active" id="navHome" onclick="show('home')">
+<!-- ==================================================
+     BOTTOM NAVIGATION
+================================================== -->
+
+<nav class="bottom-nav">
+
+  <button
+    id="navHome"
+    class="nav-btn active"
+    onclick="show('home')"
+  >
+
     <span>🏠</span>
+
     Home
+
   </button>
 
-  <button class="nav-btn" id="navEbook" onclick="show('ebook')">
+
+  <button
+    id="navEbook"
+    class="nav-btn"
+    onclick="show('ebook')"
+  >
+
     <span>📖</span>
+
     E-Book
+
   </button>
 
-  <button class="nav-btn" id="navCatalog" onclick="show('catalog')">
+
+  <button
+    id="navCatalog"
+    class="nav-btn"
+    onclick="show('catalog')"
+  >
+
     <span>📚</span>
+
     Katalog
+
   </button>
 
-  <button class="nav-btn" id="navRekom" onclick="show('rekom')">
+
+  <button
+    id="navRekom"
+    class="nav-btn"
+    onclick="show('rekom')"
+  >
+
     <span>💡</span>
+
     Rekomendasi
+
   </button>
 
-</div>
+</nav>
 
 
 <script>
 
 /* =====================================================
-   PENGATURAN GOOGLE SHEET
+   GOOGLE SHEET
 ===================================================== */
 
 const SPREADSHEET_ID =
 "1P2Hcw8hiBF-7hoXSnNqgCeyOL7pHT85_CSfAlJmgGqI";
 
+
 const SHEETS = {
 
-  books: "database buku",
+  books:"database buku",
 
-  info: "pusat informasi",
+  info:"pusat informasi",
 
-  admin: "admin inovasi",
+  admin:"admin inovasi",
 
-  ebook: "ebook",
+  ebook:"ebook",
 
-  rekom: "rekomendasi",
+  rekom:"rekomendasi",
 
-  petunjuk: "petunjuk",
+  petunjuk:"petunjuk",
 
-  pilihan: "daftar pilihan"
+  pilihan:"daftar pilihan"
 
 };
 
 
 /* =====================================================
-   DATA WEBSITE
+   DATA
 ===================================================== */
 
 const DATA = {
 
-  books: [],
+  books:[],
 
-  info: [],
+  info:[],
 
-  admin: [],
+  admin:[],
 
-  ebooks: [],
+  ebooks:[],
 
-  rekom: [],
+  rekom:[],
 
-  petunjuk: "",
+  petunjuk:"",
 
-  categories: [],
+  categories:[],
 
-  statuses: [],
+  statuses:[],
 
-  errors: {}
+  errors:{}
 
 };
 
 
 /* =====================================================
-   AMBIL DATA GOOGLE SHEET
+   GOOGLE GVIZ
 ===================================================== */
 
 async function getSheet(sheetName){
@@ -782,67 +1634,109 @@ async function getSheet(sheetName){
     "&tq=" +
     encodeURIComponent("select *");
 
-  const response = await fetch(url, {
-    method:"GET",
-    cache:"no-store"
-  });
+
+  const response =
+    await fetch(
+      url,
+      {
+        method:"GET",
+        cache:"no-store"
+      }
+    );
+
 
   if(!response.ok){
+
     throw new Error(
       "HTTP " + response.status
     );
+
   }
 
-  const text = await response.text();
 
-  const first = text.indexOf("{");
-  const last = text.lastIndexOf("}");
+  const text =
+    await response.text();
 
-  if(first === -1 || last === -1){
+
+  const first =
+    text.indexOf("{");
+
+  const last =
+    text.lastIndexOf("}");
+
+
+  if(
+    first === -1 ||
+    last === -1
+  ){
+
     throw new Error(
-      "Format data Google Sheet tidak dikenali."
+      "Data Google Sheet tidak dikenali."
     );
+
   }
 
-  const json = JSON.parse(
-    text.substring(first,last + 1)
-  );
 
-  if(json.status === "error"){
+  const json =
+    JSON.parse(
+      text.substring(
+        first,
+        last + 1
+      )
+    );
+
+
+  if(
+    json.status === "error"
+  ){
+
     throw new Error(
       json.errors &&
       json.errors[0] &&
       json.errors[0].detailed_message
-      ? json.errors[0].detailed_message
-      : "Google Sheet mengembalikan error."
+      ?
+      json.errors[0].detailed_message
+      :
+      "Google Sheet error."
     );
+
   }
+
 
   if(
     !json.table ||
     !json.table.cols
   ){
+
     throw new Error(
-      "Kolom data tidak ditemukan."
+      "Kolom tidak ditemukan."
     );
+
   }
+
 
   const headers =
     json.table.cols.map(
       col =>
-        String(col.label || "").trim()
+        String(
+          col.label || ""
+        ).trim()
     );
 
+
   const rows =
-    (json.table.rows || []).map(
+    (json.table.rows || [])
+    .map(
       row => {
 
         const obj = {};
+
 
         headers.forEach(
           (header,index) => {
 
             let value = "";
+
 
             if(
               row.c &&
@@ -850,21 +1744,26 @@ async function getSheet(sheetName){
               row.c[index].v !== null &&
               row.c[index].v !== undefined
             ){
+
               value =
                 String(
                   row.c[index].v
                 ).trim();
+
             }
+
 
             obj[header] = value;
 
           }
         );
 
+
         return obj;
 
       }
     );
+
 
   return {
     headers,
@@ -875,17 +1774,19 @@ async function getSheet(sheetName){
 
 
 /* =====================================================
-   MENCARI NILAI KOLOM
+   NILAI KOLOM
 ===================================================== */
 
-function val(row, names){
+function val(row,names){
 
   if(!row){
     return "";
   }
 
+
   const keys =
     Object.keys(row);
+
 
   for(
     const name of names
@@ -896,6 +1797,7 @@ function val(row, names){
       .trim()
       .toLowerCase();
 
+
     const found =
       keys.find(
         key =>
@@ -904,9 +1806,8 @@ function val(row, names){
           .toLowerCase() === wanted
       );
 
-    if(
-      found !== undefined
-    ){
+
+    if(found !== undefined){
 
       return String(
         row[found] ?? ""
@@ -916,14 +1817,14 @@ function val(row, names){
 
   }
 
+
   return "";
 
 }
 
 
 /* =====================================================
-   LOAD SEMUA DATA
-   SETIAP SHEET BERDIRI SENDIRI
+   LOAD DATA
 ===================================================== */
 
 async function loadData(){
@@ -931,6 +1832,7 @@ async function loadData(){
   const results = {};
 
   DATA.errors = {};
+
 
   for(
     const key of Object.keys(SHEETS)
@@ -946,14 +1848,16 @@ async function loadData(){
     }catch(error){
 
       console.error(
-        "Gagal memuat sheet:",
+        "Sheet gagal:",
         SHEETS[key],
         error
       );
 
+
       DATA.errors[key] =
         error.message ||
         String(error);
+
 
       results[key] = {
         headers:[],
@@ -966,11 +1870,12 @@ async function loadData(){
 
 
   /* =========================
-     DATABASE BUKU
+     BUKU
   ========================= */
 
   DATA.books =
-    results.books.rows.map(
+    results.books.rows
+    .map(
       row => ({
 
         no:
@@ -990,34 +1895,19 @@ async function loadData(){
           ]),
 
         penulis:
-          val(row,[
-            "Penulis",
-            "penulis"
-          ]),
+          val(row,["Penulis"]),
 
         penerbit:
-          val(row,[
-            "Penerbit",
-            "penerbit"
-          ]),
+          val(row,["Penerbit"]),
 
         tahun:
-          val(row,[
-            "Tahun",
-            "tahun"
-          ]),
+          val(row,["Tahun"]),
 
         kategori:
-          val(row,[
-            "Kategori",
-            "kategori"
-          ]),
+          val(row,["Kategori"]),
 
         status:
-          val(row,[
-            "Status",
-            "status"
-          ])
+          val(row,["Status"])
 
       })
     )
@@ -1029,11 +1919,12 @@ async function loadData(){
 
 
   /* =========================
-     PUSAT INFORMASI
+     INFORMASI
   ========================= */
 
   DATA.info =
-    results.info.rows.map(
+    results.info.rows
+    .map(
       row => ({
 
         kunci:
@@ -1058,11 +1949,12 @@ async function loadData(){
 
 
   /* =========================
-     ADMIN INOVASI
+     ADMIN
   ========================= */
 
   DATA.admin =
-    results.admin.rows.map(
+    results.admin.rows
+    .map(
       row => ({
 
         judul:
@@ -1101,7 +1993,8 @@ async function loadData(){
   ========================= */
 
   DATA.ebooks =
-    results.ebook.rows.map(
+    results.ebook.rows
+    .map(
       row => ({
 
         judul:
@@ -1146,7 +2039,8 @@ async function loadData(){
   ========================= */
 
   DATA.rekom =
-    results.rekom.rows.map(
+    results.rekom.rows
+    .map(
       row => ({
 
         judul:
@@ -1190,69 +2084,72 @@ async function loadData(){
 
   DATA.petunjuk =
     results.petunjuk.rows
-      .map(
-        row =>
-          Object.values(row)
-            .map(v =>
-              String(v || "").trim()
-            )
-            .find(v => v)
-      )
-      .find(v => v) || "";
+    .map(
+      row =>
+        Object.values(row)
+        .map(
+          value =>
+            String(
+              value || ""
+            ).trim()
+        )
+        .find(
+          value => value
+        )
+    )
+    .find(
+      value => value
+    ) || "";
 
 
   /* =========================
-     KATEGORI & STATUS
+     PILIHAN
   ========================= */
 
-  const pilihanRows =
-    results.pilihan.rows;
-
   DATA.categories =
-    pilihanRows
-      .map(
-        row =>
-          val(row,[
-            "kategori",
-            "Kategori"
-          ])
-      )
-      .filter(Boolean);
+    results.pilihan.rows
+    .map(
+      row =>
+        val(row,[
+          "kategori",
+          "Kategori"
+        ])
+    )
+    .filter(Boolean);
+
 
   DATA.statuses =
-    pilihanRows
-      .map(
-        row =>
-          val(row,[
-            "status",
-            "Status"
-          ])
-      )
-      .filter(Boolean);
+    results.pilihan.rows
+    .map(
+      row =>
+        val(row,[
+          "status",
+          "Status"
+        ])
+    )
+    .filter(Boolean);
 
-
-  /* Jika sheet daftar pilihan kosong,
-     ambil dari database buku */
 
   if(DATA.categories.length === 0){
 
     DATA.categories =
       DATA.books
-        .map(
-          book => book.kategori
-        )
-        .filter(Boolean);
+      .map(
+        book => book.kategori
+      )
+      .filter(Boolean);
 
   }
+
 
   if(DATA.statuses.length === 0){
 
     DATA.statuses =
       DATA.books
-        .map(
-          book => book.status
-        )
-        .filter(Boolean);
+      .map(
+        book => book.status
+      )
+      .filter(Boolean);
 
   }
 
@@ -1271,9 +2168,16 @@ async function loadData(){
     .sort();
 
 
-  /* =========================
-     RENDER
-  ========================= */
+  renderAll();
+
+}
+
+
+/* =====================================================
+   RENDER ALL
+===================================================== */
+
+function renderAll(){
 
   renderHome();
 
@@ -1294,10 +2198,29 @@ async function loadData(){
 
 function renderHome(){
 
+  document.getElementById(
+    "statBooks"
+  ).textContent =
+    DATA.books.length;
+
+
+  document.getElementById(
+    "statEbook"
+  ).textContent =
+    DATA.ebooks.length;
+
+
+  document.getElementById(
+    "statRekom"
+  ).textContent =
+    DATA.rekom.length;
+
+
   const info =
     document.getElementById(
       "homeInfo"
     );
+
 
   if(DATA.petunjuk){
 
@@ -1307,19 +2230,9 @@ function renderHome(){
   }else{
 
     info.textContent =
-      "Selamat datang di Pusat Informasi Digital LENTERA.";
+      "Selamat datang di Pusat Informasi Digital LENTERA DWP SMAN 1 Ngronggot.";
 
   }
-
-
-  document.getElementById(
-    "homeDataInfo"
-  ).innerHTML =
-
-    `<div class="data-info">
-      📚 Katalog tersedia:
-      <b>${DATA.books.length}</b> buku
-    </div>`;
 
 }
 
@@ -1335,16 +2248,24 @@ function renderAdmin(){
       "adminContent"
     );
 
+
   if(DATA.admin.length === 0){
 
     el.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚙️</div>
+
+        <div class="empty-icon">
+          ⚙️
+        </div>
+
         <p>
           Informasi administrasi dan inovasi
           belum tersedia.
         </p>
+
       </div>
+
     `;
 
     return;
@@ -1353,31 +2274,33 @@ function renderAdmin(){
 
 
   el.innerHTML =
-    DATA.admin.map(
+    DATA.admin
+    .map(
       item => `
 
-        <div class="resource-item">
+        <div class="admin-card">
 
-          <div class="resource-icon">
-            ${item.icon || "⚙️"}
-          </div>
+          <div class="admin-card-title">
 
-          <div class="resource-content">
+            <div class="admin-card-icon">
+              ${item.icon || "⚙️"}
+            </div>
 
-            <h3>
+            <div>
               ${escapeHtml(item.judul)}
-            </h3>
-
-            <p>
-              ${escapeHtml(item.isi)}
-            </p>
+            </div>
 
           </div>
+
+          <p>
+            ${escapeHtml(item.isi)}
+          </p>
 
         </div>
 
       `
-    ).join("");
+    )
+    .join("");
 
 }
 
@@ -1393,15 +2316,23 @@ function renderEbook(){
       "ebookContent"
     );
 
+
   if(DATA.ebooks.length === 0){
 
     el.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">📖</div>
+
+        <div class="empty-icon">
+          📖
+        </div>
+
         <p>
           Belum ada e-book yang tersedia.
         </p>
+
       </div>
+
     `;
 
     return;
@@ -1410,7 +2341,8 @@ function renderEbook(){
 
 
   el.innerHTML =
-    DATA.ebooks.map(
+    DATA.ebooks
+    .map(
       item => `
 
         <div class="resource-item">
@@ -1434,7 +2366,7 @@ function renderEbook(){
               ?
               `
                 <a
-                  class="btn"
+                  class="open-btn"
                   href="${safeUrl(item.link)}"
                   target="_blank"
                   rel="noopener"
@@ -1451,7 +2383,8 @@ function renderEbook(){
         </div>
 
       `
-    ).join("");
+    )
+    .join("");
 
 }
 
@@ -1467,6 +2400,7 @@ function renderCatalog(){
       "categoryFilter"
     );
 
+
   const status =
     document.getElementById(
       "statusFilter"
@@ -1478,12 +2412,14 @@ function renderCatalog(){
       Semua Kategori
     </option>` +
 
-    DATA.categories.map(
+    DATA.categories
+    .map(
       item =>
         `<option value="${escapeAttr(item)}">
           ${escapeHtml(item)}
         </option>`
-    ).join("");
+    )
+    .join("");
 
 
   status.innerHTML =
@@ -1491,12 +2427,14 @@ function renderCatalog(){
       Semua Status
     </option>` +
 
-    DATA.statuses.map(
+    DATA.statuses
+    .map(
       item =>
         `<option value="${escapeAttr(item)}">
           ${escapeHtml(item)}
         </option>`
-    ).join("");
+    )
+    .join("");
 
 
   filterBooks();
@@ -1505,16 +2443,20 @@ function renderCatalog(){
 
 
 /* =====================================================
-   FILTER BUKU
+   FILTER
 ===================================================== */
 
 function filterBooks(){
 
+  const input =
+    document.getElementById(
+      "searchInput"
+    );
+
+
   const search =
     (
-      document.getElementById(
-        "searchInput"
-      )?.value || ""
+      input?.value || ""
     )
     .trim()
     .toLowerCase();
@@ -1536,42 +2478,55 @@ function filterBooks(){
     DATA.books.filter(
       book => {
 
-        const text = (
-
-          book.kode + " " +
-          book.judul + " " +
-          book.penulis + " " +
-          book.penerbit + " " +
-          book.tahun + " " +
-          book.kategori + " " +
-          book.status
-
-        ).toLowerCase();
-
-
-        const cocokSearch =
-          !search ||
-          text.includes(search);
-
-
-        const cocokKategori =
-          !category ||
-          book.kategori === category;
-
-
-        const cocokStatus =
-          !status ||
-          book.status === status;
+        const text =
+          (
+            book.kode + " " +
+            book.judul + " " +
+            book.penulis + " " +
+            book.penerbit + " " +
+            book.tahun + " " +
+            book.kategori + " " +
+            book.status
+          )
+          .toLowerCase();
 
 
         return (
-          cocokSearch &&
-          cocokKategori &&
-          cocokStatus
+
+          (!search ||
+           text.includes(search))
+
+          &&
+
+          (!category ||
+           book.kategori === category)
+
+          &&
+
+          (!status ||
+           book.status === status)
+
         );
 
       }
     );
+
+
+  document.getElementById(
+    "catalogInfo"
+  ).innerHTML = `
+
+    <div class="data-info">
+
+      📚 Menampilkan
+      <b>${filtered.length}</b>
+      dari
+      <b>${DATA.books.length}</b>
+      buku
+
+    </div>
+
+  `;
 
 
   const el =
@@ -1580,22 +2535,10 @@ function filterBooks(){
     );
 
 
-  document.getElementById(
-    "catalogInfo"
-  ).innerHTML =
-
-    `<div class="data-info">
-      Menampilkan
-      <b>${filtered.length}</b>
-      dari
-      <b>${DATA.books.length}</b>
-      buku
-    </div>`;
-
-
   if(filtered.length === 0){
 
     el.innerHTML = `
+
       <div class="empty">
 
         <div class="empty-icon">
@@ -1603,10 +2546,11 @@ function filterBooks(){
         </div>
 
         <p>
-          Buku yang dicari belum ditemukan.
+          Buku yang Anda cari belum ditemukan.
         </p>
 
       </div>
+
     `;
 
     return;
@@ -1615,65 +2559,110 @@ function filterBooks(){
 
 
   el.innerHTML =
-    filtered.map(
-      (book,index) => `
+    filtered
+    .map(
+      book => {
 
-        <div
-          class="book-item"
-          onclick="detailByIndex(${DATA.books.indexOf(book)})"
-        >
+        const index =
+          DATA.books.indexOf(book);
 
-          <div class="book-code">
-            ${escapeHtml(book.kode || "LENTERA")}
+
+        return `
+
+          <div
+            class="book-item"
+            onclick="detailByIndex(${index})"
+          >
+
+            <div class="book-code">
+              ${escapeHtml(
+                book.kode ||
+                "LENTERA"
+              )}
+            </div>
+
+            <div class="book-title">
+              ${escapeHtml(
+                book.judul ||
+                "Tanpa Judul"
+              )}
+            </div>
+
+            <div class="book-info">
+
+              👤
+              ${escapeHtml(
+                book.penulis ||
+                "-"
+              )}
+
+              <br>
+
+              🏢
+              ${escapeHtml(
+                book.penerbit ||
+                "-"
+              )}
+
+              <br>
+
+              📅
+              ${escapeHtml(
+                book.tahun ||
+                "-"
+              )}
+
+            </div>
+
+            ${
+              book.kategori
+              ?
+              `
+                <span class="book-category">
+                  🏷️
+                  ${escapeHtml(
+                    book.kategori
+                  )}
+                </span>
+              `
+              :
+              ""
+            }
+
+            ${
+              book.status
+              ?
+              `
+                <span class="book-status">
+                  ${escapeHtml(
+                    book.status
+                  )}
+                </span>
+              `
+              :
+              ""
+            }
+
           </div>
 
-          <div class="book-title">
-            ${escapeHtml(book.judul || "Tanpa Judul")}
-          </div>
+        `;
 
-          <div class="book-info">
-
-            👤 ${escapeHtml(book.penulis || "-")}
-            <br>
-
-            🏢 ${escapeHtml(book.penerbit || "-")}
-            <br>
-
-            📅 ${escapeHtml(book.tahun || "-")}
-            <br>
-
-            🏷️ ${escapeHtml(book.kategori || "-")}
-
-          </div>
-
-          ${
-            book.status
-            ?
-            `
-              <span class="book-status">
-                ${escapeHtml(book.status)}
-              </span>
-            `
-            :
-            ""
-          }
-
-        </div>
-
-      `
-    ).join("");
+      }
+    )
+    .join("");
 
 }
 
 
 /* =====================================================
-   DETAIL BUKU
+   DETAIL
 ===================================================== */
 
 function detailByIndex(index){
 
   const book =
     DATA.books[index];
+
 
   if(!book){
     return;
@@ -1684,70 +2673,107 @@ function detailByIndex(index){
     "detailContent"
   ).innerHTML = `
 
-    <div class="card">
+    <div class="detail-card">
+
+      <div class="detail-cover">
+        📖
+      </div>
 
       <div class="detail-title">
-        ${escapeHtml(book.judul || "Detail Buku")}
+        ${escapeHtml(
+          book.judul ||
+          "Detail Buku"
+        )}
       </div>
 
+
       <div class="detail-row">
+
         <div class="detail-label">
-          Kode Buku
+          KODE BUKU
         </div>
 
         <div class="detail-value">
-          ${escapeHtml(book.kode || "-")}
+          ${escapeHtml(
+            book.kode || "-"
+          )}
         </div>
+
       </div>
 
+
       <div class="detail-row">
+
         <div class="detail-label">
-          Penulis
+          PENULIS
         </div>
 
         <div class="detail-value">
-          ${escapeHtml(book.penulis || "-")}
+          ${escapeHtml(
+            book.penulis || "-"
+          )}
         </div>
+
       </div>
 
+
       <div class="detail-row">
+
         <div class="detail-label">
-          Penerbit
+          PENERBIT
         </div>
 
         <div class="detail-value">
-          ${escapeHtml(book.penerbit || "-")}
+          ${escapeHtml(
+            book.penerbit || "-"
+          )}
         </div>
+
       </div>
 
+
       <div class="detail-row">
+
         <div class="detail-label">
-          Tahun Terbit
+          TAHUN TERBIT
         </div>
 
         <div class="detail-value">
-          ${escapeHtml(book.tahun || "-")}
+          ${escapeHtml(
+            book.tahun || "-"
+          )}
         </div>
+
       </div>
 
+
       <div class="detail-row">
+
         <div class="detail-label">
-          Kategori
+          KATEGORI
         </div>
 
         <div class="detail-value">
-          ${escapeHtml(book.kategori || "-")}
+          ${escapeHtml(
+            book.kategori || "-"
+          )}
         </div>
+
       </div>
 
+
       <div class="detail-row">
+
         <div class="detail-label">
-          Status
+          STATUS
         </div>
 
         <div class="detail-value">
-          ${escapeHtml(book.status || "-")}
+          ${escapeHtml(
+            book.status || "-"
+          )}
         </div>
+
       </div>
 
     </div>
@@ -1775,6 +2801,7 @@ function renderRekom(){
   if(DATA.rekom.length === 0){
 
     el.innerHTML = `
+
       <div class="empty">
 
         <div class="empty-icon">
@@ -1786,6 +2813,7 @@ function renderRekom(){
         </p>
 
       </div>
+
     `;
 
     return;
@@ -1794,7 +2822,8 @@ function renderRekom(){
 
 
   el.innerHTML =
-    DATA.rekom.map(
+    DATA.rekom
+    .map(
       item => `
 
         <div class="resource-item">
@@ -1806,11 +2835,15 @@ function renderRekom(){
           <div class="resource-content">
 
             <h3>
-              ${escapeHtml(item.judul)}
+              ${escapeHtml(
+                item.judul
+              )}
             </h3>
 
             <p>
-              ${escapeHtml(item.deskripsi)}
+              ${escapeHtml(
+                item.deskripsi
+              )}
             </p>
 
             ${
@@ -1818,7 +2851,9 @@ function renderRekom(){
               ?
               `
                 <span class="resource-category">
-                  ${escapeHtml(item.kategori)}
+                  ${escapeHtml(
+                    item.kategori
+                  )}
                 </span>
               `
               :
@@ -1832,7 +2867,7 @@ function renderRekom(){
                 <br>
 
                 <a
-                  class="btn"
+                  class="open-btn"
                   href="${safeUrl(item.link)}"
                   target="_blank"
                   rel="noopener"
@@ -1849,13 +2884,14 @@ function renderRekom(){
         </div>
 
       `
-    ).join("");
+    )
+    .join("");
 
 }
 
 
 /* =====================================================
-   PINDAH HALAMAN
+   NAVIGASI
 ===================================================== */
 
 function show(page){
@@ -1864,7 +2900,9 @@ function show(page){
     .querySelectorAll(".page")
     .forEach(
       el =>
-        el.classList.remove("active")
+        el.classList.remove(
+          "active"
+        )
     );
 
 
@@ -1873,7 +2911,11 @@ function show(page){
 
 
   if(target){
-    target.classList.add("active");
+
+    target.classList.add(
+      "active"
+    );
+
   }
 
 
@@ -1881,32 +2923,61 @@ function show(page){
     .querySelectorAll(".nav-btn")
     .forEach(
       el =>
-        el.classList.remove("active")
+        el.classList.remove(
+          "active"
+        )
     );
 
 
   if(page === "home"){
+
     document
-      .getElementById("navHome")
-      ?.classList.add("active");
+      .getElementById(
+        "navHome"
+      )
+      ?.classList.add(
+        "active"
+      );
+
   }
+
 
   if(page === "ebook"){
+
     document
-      .getElementById("navEbook")
-      ?.classList.add("active");
+      .getElementById(
+        "navEbook"
+      )
+      ?.classList.add(
+        "active"
+      );
+
   }
+
 
   if(page === "catalog"){
+
     document
-      .getElementById("navCatalog")
-      ?.classList.add("active");
+      .getElementById(
+        "navCatalog"
+      )
+      ?.classList.add(
+        "active"
+      );
+
   }
 
+
   if(page === "rekom"){
+
     document
-      .getElementById("navRekom")
-      ?.classList.add("active");
+      .getElementById(
+        "navRekom"
+      )
+      ?.classList.add(
+        "active"
+      );
+
   }
 
 
@@ -1919,17 +2990,34 @@ function show(page){
 
 
 /* =====================================================
-   KEAMANAN TEKS HTML
+   HTML SECURITY
 ===================================================== */
 
 function escapeHtml(value){
 
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
@@ -1942,22 +3030,32 @@ function escapeAttr(value){
 
 
 /* =====================================================
-   LINK AMAN
+   URL
 ===================================================== */
 
 function safeUrl(url){
 
   const value =
-    String(url || "").trim();
+    String(
+      url || ""
+    ).trim();
+
 
   if(
-    value.startsWith("https://") ||
-    value.startsWith("http://")
+    value.startsWith(
+      "https://"
+    ) ||
+    value.startsWith(
+      "http://"
+    )
   ){
 
-    return escapeAttr(value);
+    return escapeAttr(
+      value
+    );
 
   }
+
 
   return "#";
 
@@ -1965,7 +3063,7 @@ function safeUrl(url){
 
 
 /* =====================================================
-   MULAI WEBSITE
+   START
 ===================================================== */
 
 document.addEventListener(
@@ -1978,25 +3076,16 @@ document.addEventListener(
 
     }catch(error){
 
-      console.error(error);
+      console.error(
+        "LENTERA ERROR:",
+        error
+      );
+
 
       document.getElementById(
-        "homeDataInfo"
-      ).innerHTML = `
-
-        <div class="error-box">
-
-          ⚠️ Website berhasil dibuka,
-          tetapi data Google Sheet belum dapat
-          dimuat.
-
-          <br><br>
-
-          Silakan coba refresh halaman.
-
-        </div>
-
-      `;
+        "homeInfo"
+      ).textContent =
+        "Website LENTERA berhasil dibuka, tetapi data sedang mengalami kendala. Silakan refresh halaman.";
 
     }
 

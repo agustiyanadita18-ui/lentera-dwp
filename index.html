@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LENTERA — Pusat Informasi Digital</title>
+
 <style>
 :root{
   --blue:#075aa8; --blue2:#0b79d0; --navy:#06427f; --soft:#eef7ff;
@@ -11,188 +12,1683 @@
   --shadow:0 8px 25px rgba(17,76,126,.10); --radius:18px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#edf6fd;color:var(--text)}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#edf6fd;
+  color:var(--text)
+}
 button,input,select{font:inherit}
-.app{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;box-shadow:0 0 35px rgba(0,0,0,.08)}
-.topbar{position:sticky;top:0;z-index:20;height:62px;background:linear-gradient(135deg,#06447f,#0878c9);color:white;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
-.brand{font-weight:800;letter-spacing:.5px;font-size:18px;display:flex;gap:8px;align-items:center}
+.app{
+  max-width:480px;
+  margin:0 auto;
+  min-height:100vh;
+  background:#fff;
+  box-shadow:0 0 35px rgba(0,0,0,.08)
+}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  height:62px;
+  background:linear-gradient(135deg,#06447f,#0878c9);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px
+}
+.brand{
+  font-weight:800;
+  letter-spacing:.5px;
+  font-size:18px;
+  display:flex;
+  gap:8px;
+  align-items:center
+}
 .brand-mark{font-size:22px}
-.icon-btn{border:0;background:transparent;color:white;font-size:24px;cursor:pointer}
+.icon-btn{
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:24px;
+  cursor:pointer
+}
 main{padding-bottom:78px}
-.hero{background:linear-gradient(180deg,#064b8b 0%,#087bcf 56%,#eaf6ff 56%,#fff 100%);padding:0 14px 18px}
-.hero-image{height:190px;border-radius:0 0 24px 24px;display:flex;align-items:flex-end;padding:18px 16px;background:
-linear-gradient(180deg,rgba(0,54,110,.08),rgba(0,45,95,.78)),
-linear-gradient(135deg,#79b9e9,#d8efff);color:#fff}
+.hero{
+  background:linear-gradient(
+    180deg,
+    #064b8b 0%,
+    #087bcf 56%,
+    #eaf6ff 56%,
+    #fff 100%
+  );
+  padding:0 14px 18px
+}
+.hero-image{
+  height:190px;
+  border-radius:0 0 24px 24px;
+  display:flex;
+  align-items:flex-end;
+  padding:18px 16px;
+  background:
+  linear-gradient(180deg,rgba(0,54,110,.08),rgba(0,45,95,.78)),
+  linear-gradient(135deg,#79b9e9,#d8efff);
+  color:#fff
+}
 .hero h1{font-size:29px;margin:0 0 4px}
 .hero p{margin:0;font-size:13px;line-height:1.5}
-.hero-card{background:white;border-radius:22px;margin:-1px 2px 0;padding:15px;box-shadow:var(--shadow)}
-.welcome{font-size:19px;font-weight:800;color:var(--navy);margin:0 0 5px}
-.muted{color:var(--muted);font-size:13px;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
-.grid .menu-card:nth-child(4),.grid .menu-card:nth-child(5){grid-column:span 1}
-.menu-card{border:1px solid var(--line);background:#f8fcff;border-radius:15px;padding:13px 7px;text-align:center;cursor:pointer;color:var(--navy);font-weight:700;font-size:11px;min-height:82px}
-.menu-card .ico{display:block;font-size:26px;margin-bottom:7px}
+.hero-card{
+  background:white;
+  border-radius:22px;
+  margin:-1px 2px 0;
+  padding:15px;
+  box-shadow:var(--shadow)
+}
+.welcome{
+  font-size:19px;
+  font-weight:800;
+  color:var(--navy);
+  margin:0 0 5px
+}
+.muted{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:14px
+}
+.grid .menu-card:nth-child(4),
+.grid .menu-card:nth-child(5){
+  grid-column:span 1
+}
+.menu-card{
+  border:1px solid var(--line);
+  background:#f8fcff;
+  border-radius:15px;
+  padding:13px 7px;
+  text-align:center;
+  cursor:pointer;
+  color:var(--navy);
+  font-weight:700;
+  font-size:11px;
+  min-height:82px
+}
+.menu-card .ico{
+  display:block;
+  font-size:26px;
+  margin-bottom:7px
+}
 .section{padding:18px 14px}
-.section-title{font-size:20px;color:var(--navy);margin:0 0 6px;font-weight:800}
-.section-sub{font-size:13px;color:var(--muted);margin-bottom:14px}
-.card{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fff;box-shadow:var(--shadow);margin-bottom:11px}
-.card-row{display:flex;gap:12px;align-items:flex-start}
-.card-icon{width:46px;height:46px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:24px;flex:0 0 auto}
-.card h3{margin:0 0 5px;color:var(--navy);font-size:15px}
-.card p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
-.btn{border:0;background:linear-gradient(135deg,#0872c7,#0792dc);color:white;border-radius:999px;padding:9px 14px;font-size:12px;font-weight:700;cursor:pointer}
-.btn.secondary{background:#edf7ff;color:#0863a8}
-.actions{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-.searchbox{display:flex;gap:8px;margin:12px 0}
-.searchbox input{flex:1;border:1px solid #cfe2f2;border-radius:12px;padding:12px 13px;outline:none}
-.searchbox input:focus{border-color:#1684d5;box-shadow:0 0 0 3px #e5f4ff}
-.selects{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.selects select{width:100%;border:1px solid #cfe2f2;border-radius:11px;padding:10px;background:white;color:var(--text)}
-.count{font-size:12px;color:var(--muted);margin:8px 0 10px}
-.book-card{display:flex;gap:11px;padding:11px;border:1px solid var(--line);border-radius:15px;margin-bottom:9px}
-.book-cover{width:64px;height:82px;border-radius:8px;background:linear-gradient(145deg,#075aa8,#63b5eb);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:11px;text-align:center;padding:6px;flex:0 0 auto}
-.book-info{min-width:0;flex:1}
-.book-title{font-weight:800;color:var(--navy);font-size:14px;line-height:1.25}
-.book-meta{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.45}
-.status{display:inline-block;color:#0b8b4e;background:#e4f8ed;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:700}
-.detail-head{display:flex;gap:15px;align-items:center;margin-bottom:15px}
-.detail-cover{width:115px;height:155px;border-radius:10px;background:linear-gradient(145deg,#075aa8,#67b8ec);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;text-align:center;padding:12px}
-.detail-title{font-size:22px;color:var(--navy);font-weight:800;margin-bottom:4px}
-.detail-author{font-size:13px;color:var(--muted)}
-.table{border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.tr{display:grid;grid-template-columns:105px 1fr;padding:10px 12px;border-bottom:1px solid var(--line);font-size:12px}
-.tr:last-child{border-bottom:0}.tr b{color:var(--navy)}
-.quote{background:#eaf7ff;border:1px solid #c9e9ff;border-radius:15px;padding:14px;font-size:13px;line-height:1.5;color:#155d8f}
-.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:68px;background:#064b88;color:white;display:grid;grid-template-columns:repeat(4,1fr);z-index:30;box-shadow:0 -4px 18px rgba(0,0,0,.12)}
-.bottom button{border:0;background:transparent;color:white;font-size:10px;cursor:pointer;padding:5px}
-.bottom .ico{display:block;font-size:21px;margin-bottom:3px}
+.section-title{
+  font-size:20px;
+  color:var(--navy);
+  margin:0 0 6px;
+  font-weight:800
+}
+.section-sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:14px
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:14px;
+  background:#fff;
+  box-shadow:var(--shadow);
+  margin-bottom:11px
+}
+.card-row{
+  display:flex;
+  gap:12px;
+  align-items:flex-start
+}
+.card-icon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  background:var(--soft);
+  display:grid;
+  place-items:center;
+  font-size:24px;
+  flex:0 0 auto
+}
+.card h3{
+  margin:0 0 5px;
+  color:var(--navy);
+  font-size:15px
+}
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5
+}
+.btn{
+  border:0;
+  background:linear-gradient(135deg,#0872c7,#0792dc);
+  color:white;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block
+}
+.btn.secondary{
+  background:#edf7ff;
+  color:#0863a8
+}
+.actions{
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap
+}
+.searchbox{
+  display:flex;
+  gap:8px;
+  margin:12px 0
+}
+.searchbox input{
+  flex:1;
+  border:1px solid #cfe2f2;
+  border-radius:12px;
+  padding:12px 13px;
+  outline:none
+}
+.searchbox input:focus{
+  border-color:#1684d5;
+  box-shadow:0 0 0 3px #e5f4ff
+}
+.selects{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:12px
+}
+.selects select{
+  width:100%;
+  border:1px solid #cfe2f2;
+  border-radius:11px;
+  padding:10px;
+  background:white;
+  color:var(--text)
+}
+.count{
+  font-size:12px;
+  color:var(--muted);
+  margin:8px 0 10px
+}
+.book-card{
+  display:flex;
+  gap:11px;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  margin-bottom:9px
+}
+.book-cover{
+  width:64px;
+  height:82px;
+  border-radius:8px;
+  background:linear-gradient(145deg,#075aa8,#63b5eb);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:800;
+  font-size:11px;
+  text-align:center;
+  padding:6px;
+  flex:0 0 auto
+}
+.book-info{
+  min-width:0;
+  flex:1
+}
+.book-title{
+  font-weight:800;
+  color:var(--navy);
+  font-size:14px;
+  line-height:1.25
+}
+.book-meta{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px;
+  line-height:1.45
+}
+.status{
+  display:inline-block;
+  color:#0b8b4e;
+  background:#e4f8ed;
+  padding:3px 7px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:700
+}
+.detail-head{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  margin-bottom:15px
+}
+.detail-cover{
+  width:115px;
+  height:155px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#075aa8,#67b8ec);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:800;
+  text-align:center;
+  padding:12px
+}
+.detail-title{
+  font-size:22px;
+  color:var(--navy);
+  font-weight:800;
+  margin-bottom:4px
+}
+.detail-author{
+  font-size:13px;
+  color:var(--muted)
+}
+.table{
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden
+}
+.tr{
+  display:grid;
+  grid-template-columns:105px 1fr;
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  font-size:12px
+}
+.tr:last-child{border-bottom:0}
+.tr b{color:var(--navy)}
+.quote{
+  background:#eaf7ff;
+  border:1px solid #c9e9ff;
+  border-radius:15px;
+  padding:14px;
+  font-size:13px;
+  line-height:1.5;
+  color:#155d8f
+}
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(480px,100%);
+  height:68px;
+  background:#064b88;
+  color:white;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:30;
+  box-shadow:0 -4px 18px rgba(0,0,0,.12)
+}
+.bottom button{
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:10px;
+  cursor:pointer;
+  padding:5px
+}
+.bottom .ico{
+  display:block;
+  font-size:21px;
+  margin-bottom:3px
+}
 .bottom button.active{background:#0879c9}
-.empty{text-align:center;padding:30px 10px;color:var(--muted);font-size:13px}
+.empty{
+  text-align:center;
+  padding:30px 10px;
+  color:var(--muted);
+  font-size:13px
+}
 .back{margin-bottom:12px}
-.toast{position:fixed;left:50%;bottom:82px;transform:translateX(-50%);background:#123d61;color:#fff;padding:9px 14px;border-radius:999px;font-size:11px;display:none;z-index:50}
-@media(min-width:700px){body{padding:20px}.app{border-radius:25px;overflow:hidden}}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:82px;
+  transform:translateX(-50%);
+  background:#123d61;
+  color:#fff;
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:11px;
+  display:none;
+  z-index:50;
+  max-width:90%;
+  text-align:center
+}
+.loading{
+  text-align:center;
+  padding:55px 20px;
+  color:var(--muted);
+  font-size:13px
+}
+.loading .spin{
+  font-size:30px;
+  display:block;
+  margin-bottom:10px;
+  animation:putar 1s linear infinite
+}
+@keyframes putar{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+.error-box{
+  margin:20px 14px;
+  padding:16px;
+  border-radius:15px;
+  background:#fff4f4;
+  border:1px solid #f0cccc;
+  color:#8a3030;
+  font-size:13px;
+  line-height:1.5
+}
+@media(min-width:700px){
+  body{padding:20px}
+  .app{
+    border-radius:25px;
+    overflow:hidden
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
 <header class="topbar">
   <button class="icon-btn" onclick="show('home')" aria-label="Menu">☰</button>
-  <div class="brand"><span class="brand-mark">📖</span>LENTERA</div>
-  <button class="icon-btn" onclick="toast('Pencarian tersedia di Katalog Digital')" aria-label="Cari">⌕</button>
+
+  <div class="brand">
+    <span class="brand-mark">📖</span>LENTERA
+  </div>
+
+  <button class="icon-btn"
+          onclick="toast('Pencarian tersedia di Katalog Digital')"
+          aria-label="Cari">⌕</button>
 </header>
-<main id="content"></main>
+
+<main id="content">
+  <div class="loading">
+    <span class="spin">⟳</span>
+    Menghubungkan ke Google Sheet...
+  </div>
+</main>
+
 <nav class="bottom">
-  <button id="nav-home" onclick="show('home')"><span class="ico">⌂</span>Home</button>
-  <button id="nav-ebook" onclick="show('ebook')"><span class="ico">▣</span>E-Book</button>
-  <button id="nav-catalog" onclick="show('catalog')"><span class="ico">▤</span>Katalog</button>
-  <button id="nav-rekom" onclick="show('rekom')"><span class="ico">♧</span>Rekomendasi</button>
+  <button id="nav-home" onclick="show('home')">
+    <span class="ico">⌂</span>Home
+  </button>
+
+  <button id="nav-ebook" onclick="show('ebook')">
+    <span class="ico">▣</span>E-Book
+  </button>
+
+  <button id="nav-catalog" onclick="show('catalog')">
+    <span class="ico">▤</span>Katalog
+  </button>
+
+  <button id="nav-rekom" onclick="show('rekom')">
+    <span class="ico">♧</span>Rekomendasi
+  </button>
 </nav>
+
 </div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-const DATA = {"books": [{"No": "1.0", "Kode Buku": "297", "Judul Buku": "Berlomba Menuju Surga", "Penulis": "Dr. Khalid Abu Syadi", "Penerbit": "Darul Basyir", "Tahun": "2021", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Duka Lara Cinta", "Penulis": "Musyfiqur Rahman", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Jangan Rusak Agamamu Dengan  Bersikap Ekstrem", "Penulis": "Syaikh Muhammad Abdul Hakim Hamid", "Penerbit": "Pustaka Al-Kautsar", "Tahun": "2023", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Arah Musim", "Penulis": "Kurniawan Gunadi", "Penerbit": "Bentang", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Ensiklopedia Hari Kebangkitan", "Penulis": "Ibnu Katsir", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Surga yang Dirindukan Neraka yang Ditakutkan", "Penulis": "Abu Utsman Kharisman", "Penerbit": "Attuqa", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Dahsyatnya Ibadah Para Sahabat Rasuluallah", "Penulis": "Yanuar Arifin", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Al-Kabair Galaksi Doa", "Penulis": "Imam Adz-Dzahabi", "Penerbit": "Darul Falah", "Tahun": "2017", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "La Taghdhab Jangan Marah", "Penulis": "DR. Aidh Al-Qarni", "Penerbit": "Kiswah Media", "Tahun": "2015", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Institusionalisasi vs Rasionalisasi", "Penulis": "Ahmad Norma Permata", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Berislam Dijalur Tengah", "Penulis": "Dr. Aksin Wijaya", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "100", "Judul Buku": "Filsafat Plato", "Penulis": "Frederick Copleston", "Penerbit": "BASABASI", "Tahun": "2024", "Kategori": "Filsafat", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Mereka Dizalimi Tapi Disayang Nabi", "Penulis": "Dr. Raghib As-Sirjani", "Penerbit": "Multazam", "Tahun": "2013", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "700", "Judul Buku": "Bertandang Ke Galeri", "Penulis": "Wahyudin", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Seni", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Cara Kaya seperti Nabi Sulaiman", "Penulis": "Ahmad Zainal Abidin", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "370", "Judul Buku": "Bagaimana Menulis Tesis", "Penulis": "Umberto Eco", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Pendidikan", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Fikih Menjemput Jodoh", "Penulis": "Musthafa bin Abul Ghaith Abdulhayi", "Penerbit": "Maktabah As-Sunah", "Tahun": "2018", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "330", "Judul Buku": "Investapedia", "Penulis": "Aqida Shohiha, S.E.I.,M.E.", "Penerbit": "Aqida Shohiha, S.E.I.,M.E.", "Tahun": "2020", "Kategori": "Ilmu Ekonomi", "Status": "Tersedia"}, {"No": "", "Kode Buku": "370", "Judul Buku": "Bagaimana Saya Menulis", "Penulis": "Bertrand Russell", "Penerbit": "Bertrand Russell", "Tahun": "2020", "Kategori": "Pendidikan", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Islam Agama Ramah Perempuan", "Penulis": "K.H. Husein Muhammad", "Penerbit": "IRCiSoD", "Tahun": "2021", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "I'm A Hero", "Penulis": "Solikhin Abu Izzudin", "Penerbit": "Pro-U Media", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Jejak Kupu-Kupu", "Penulis": "Mahmud Darwisy", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Dasar-Dasar Ilmu Tajwid", "Penulis": "Dr. Marzuki", "Penerbit": "DIVA Press", "Tahun": "2021", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Ath-Thibbu An-Nabawi", "Penulis": "Ibnu Qayyim al-Jauziyah", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Nikmatnya Pacaran Setelah Pernikahan", "Penulis": "Salim A Fillah", "Penerbit": "Pro-U Media", "Tahun": "2003", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Belenggu", "Penulis": "Mufidatun Fauziyah", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Saatnya untuk Menikah", "Penulis": "Mohammad Fauzil Adhim", "Penerbit": "Pro-U Media", "Tahun": "2007", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Asmaraloka", "Penulis": "Usman Arrumy", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Puisi", "Status": "Tersedia"}, {"No": "", "Kode Buku": "100", "Judul Buku": "Filsafat Periode Socrates", "Penulis": "Frederick Copleston", "Penerbit": "BASABASI", "Tahun": "2024", "Kategori": "Filsafat", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Kandang Ayam Korpus Dapur Teks", "Penulis": "Afrizal Malna", "Penerbit": "DIVA Press", "Tahun": "2021", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Kedalaman Maria Rilke", "Penulis": "Berthord Damshauser", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "100", "Judul Buku": "Filsafat Etika Islam", "Penulis": "Haidar Bagir", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Filsafat", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Cikuya, 1573", "Penulis": "Sungging Raga", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Agar Bidadari Cemburu Padamu", "Penulis": "Salim A Fillah", "Penerbit": "Pro-U Media", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Beginilah Islamku", "Penulis": "K.H. Husein Muhammad", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Hujan Pertama Untuk Asyila", "Penulis": "Edi AH Iyubenu", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Jangan Asal Cinta Berguru Cinta Kepada Rasullah", "Penulis": "Ummu Kaysa", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Kartamani, Riwayat Gelap dari Bonggol Pilihan", "Penulis": "Mashdar Zainal", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "890", "Judul Buku": "Bahasa dan Kekuasaan Simbolik", "Penulis": "Pierre Bourdieu", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Kesusastraan", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Ensiklopedia Lengkap Ulama Ushul Fiqh", "Penulis": "Abdullah Musthafa Al Maraghi", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Dakwah dan Kuasa", "Penulis": "Ahmad Rizky M. Umar", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Bajak Laut", "Penulis": "La Side", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Inilah Penyebab Wanita Lebih Mudah Masuk Neraka", "Penulis": "Nor Fadilah", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Arah Baru Studi Ulumum Qur'an", "Penulis": "DR. Aksin Wijaya", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Angin Pertama", "Penulis": "Kim Al Ghozali  AM", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Puisi", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Kamus Para Pecinta", "Penulis": "Nizar Qabbani", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Suami Bertekuk Lutut di Hadapan Istri", "Penulis": "Naylil Moena", "Penerbit": "Laksana", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "700", "Judul Buku": "Apakah Seni Itu", "Penulis": "Leo Tolstoy", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Seni", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Hari Terakhir di Rumah Bordil", "Penulis": "Bode Riswandi", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "100", "Judul Buku": "Etika Nikomakea", "Penulis": "Aristoteles", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Filsafat", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Forgulos", "Penulis": "Aveus Har", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "300", "Judul Buku": "Feminisme", "Penulis": "Margaret Walters", "Penerbit": "IRCiSoD", "Tahun": "2021", "Kategori": "Ilmu-Ilmu Sosial", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Dinamika Islam Kultural", "Penulis": "M. Amin Abdullah", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "420", "Judul Buku": "Comprehensive English Situasional Speaking", "Penulis": "Nur Rosita", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "Bahasa Inggris", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Cinta Sepanjang Musim", "Penulis": "Bagus Dwi Hananto", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Duhai Nabi, Jadikan Aku Kekasihmu", "Penulis": "Ukasyah Habibu Ahmad", "Penerbit": "Laksana", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Motivasi dan Panduan Menuntut Ilmu", "Penulis": "Ali Bin Muhammad Aali Imraan", "Penerbit": "Buana Ilmu Islami", "Tahun": "2019", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Air Mata Taubat", "Penulis": "Ibnul Jauzi", "Penerbit": "Al-Qowam", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Cara Kerja Ingatan", "Penulis": "Dadang Ari Murtono", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Ibu, Sedang Apa?", "Penulis": "Edi AH Iyubenu", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Duel", "Penulis": "Joseph Conrad", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Duel", "Penulis": "Anton Chekhov", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Gelak Tawa di Rumah Duka", "Penulis": "Mashdar Zainal", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Dentang Ketiga Belas", "Penulis": "Maya Lestari GF", "Penerbit": "Laksana", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Daun Terakhir", "Penulis": "O. Henry", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Di Matama Alamatku", "Penulis": "Faruq Juwaidah", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Hanya Cinta yang Kita Punya untuk Mengatasi", "Penulis": "Edi AH Iyubenu", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Gitu Aja Kok Repot", "Penulis": "Abdur Rahman", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "610", "Judul Buku": "Happy Exclusive Breads Feeding", "Penulis": "Nur Furi Wulandari", "Penerbit": "Laksana", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Islam yang Mencerahkan", "Penulis": "K.H. Husein Muhammad", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}, {"No": "", "Kode Buku": "490", "Judul Buku": "Bahasa Turki Dasar", "Penulis": "Bernando J.Sujibto", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Bahasa", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Anjangsana", "Penulis": "Usman Arrumy", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Jaringan Ulama dan Islamisasi Indoenesia Timur", "Penulis": "Hilful Fudhul Sirajudin Jaffar", "Penerbit": "IRCiSoD", "Tahun": "2020", "Kategori": "Agama", "Status": "tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Jari Tengah", "Penulis": "Alfian Dippahatang", "Penerbit": "BASABASI", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "813", "Judul Buku": "Cinta dalam Mimpi", "Penulis": "Muyassarotul Hafidzoh", "Penerbit": "DIVA Press", "Tahun": "2020", "Kategori": "Novel", "Status": "Tersedia"}, {"No": "", "Kode Buku": "330", "Judul Buku": "Business Revolusioner", "Penulis": "John Afifi", "Penerbit": "Noktah", "Tahun": "2020", "Kategori": "Ilmu Ekonomi", "Status": "Tersedia"}, {"No": "", "Kode Buku": "297", "Judul Buku": "Bila Hati Rindu Menikah", "Penulis": "Mas Udik Abdullah", "Penerbit": "Pro-U Media", "Tahun": "2020", "Kategori": "Agama", "Status": "Tersedia"}], "admin": [{"Judul": "Profil LENTERA", "Isi": "Pojok Literasi Kreatif LENTERA DWP SMAN 1 Ngronggot", "Icon": "📚"}, {"Judul": "Administrasi", "Isi": "Pengelolaan dan administrasi pojok baca LENTERA", "Icon": "📋"}, {"Judul": "Program Literasi", "Isi": "Kegiatan membaca, pengembangan literasi, dan pemanfaatan sumber digital", "Icon": "📖"}, {"Judul": "Inovasi", "Isi": "Pemanfaatan katalog digital dan pusat informasi berbasis web", "Icon": "💡"}], "ebooks": [{"Judul": "iPusnas", "Deskripsi": "Akses koleksi buku digital Indonesia", "Link": "https://ipusnas.id/", "Icon": "📚"}, {"Judul": "Wikisource", "Deskripsi": "Koleksi karya dan bacaan bebas", "Link": "https://id.wikisource.org/", "Icon": "📜"}, {"Judul": "Project Gutenberg", "Deskripsi": "Koleksi buku klasik dunia", "Link": "https://www.gutenberg.org/", "Icon": "🌎"}, {"Judul": "OpenStax", "Deskripsi": "Buku teks pendidikan gratis", "Link": "https://openstax.org/", "Icon": "🎓"}], "rekom": [{"Judul": "Rumah Belajar", "Deskripsi": "Sumber belajar digital untuk peserta didik dan pendidik Indonesia.", "Link": "https://belajar.kemdikbud.go.id/", "Kategori": "Pendidikan"}, {"Judul": "Khan Academy", "Deskripsi": "Materi belajar gratis untuk berbagai bidang dan jenjang.", "Link": "https://www.khanacademy.org/", "Kategori": "Pembelajaran"}, {"Judul": "OpenStax", "Deskripsi": "Buku teks pendidikan gratis dan terbuka.", "Link": "https://openstax.org/", "Kategori": "Referensi"}, {"Judul": "Wikipedia Indonesia", "Deskripsi": "Ensiklopedia daring untuk mencari informasi dan pengetahuan.", "Link": "https://id.wikipedia.org/", "Kategori": "Pengetahuan"}, {"Judul": "National Geographic Kids", "Deskripsi": "Informasi dan bacaan menarik tentang sains, alam, dan dunia.", "Link": "https://kids.nationalgeographic.com/", "Kategori": "Sains"}, {"Judul": "Google Arts & Culture", "Deskripsi": "Eksplorasi seni, budaya, museum, dan berbagai koleksi dari seluruh dunia.", "Link": "https://artsandculture.google.com/", "Kategori": "Seni & Budaya"}], "info": {"NAMA": "LENTERA", "SUBJUDUL": "Pusat Informasi Digital", "SEKOLAH": "DWP SMAN 1 Ngronggot", "DESKRIPSI": "Pojok Literasi Kreatif", "KATALOG_DIGITAL": ""}};
-let current='home';
 
-function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1800);}
+/* =========================================================
+   PENGATURAN GOOGLE SHEET
+   ========================================================= */
+
+const SPREADSHEET_ID =
+"1P2Hcw8hiBF-7hoXSnNqgCeyOL7pHT85_CSfAlJmgGqI";
+
+const SHEETS = {
+  books: "database buku",
+  info: "pusat informasi",
+  admin: "admin inovasi",
+  ebooks: "ebook",
+  rekom: "rekomendasi",
+  petunjuk: "petunjuk",
+  pilihan: "daftar pilihan"
+};
+
+
+/* =========================================================
+   DATA WEBSITE
+   ========================================================= */
+
+let DATA = {
+  books: [],
+  admin: [],
+  ebooks: [],
+  rekom: [],
+  info: {},
+  petunjuk: "",
+  pilihan: {
+    kategori: [],
+    status: []
+  }
+};
+
+let current = 'home';
+
+
+/* =========================================================
+   FUNGSI DASAR
+   ========================================================= */
+
+function esc(s){
+  return String(s ?? '').replace(
+    /[&<>"']/g,
+    m => ({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#039;'
+    }[m])
+  );
+}
+
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.display='block';
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer=setTimeout(()=>{
+    t.style.display='none';
+  },1800);
+}
+
+
 function setActive(id){
-  document.querySelectorAll('.bottom button').forEach(x=>x.classList.remove('active'));
-  const b=document.getElementById('nav-'+id); if(b)b.classList.add('active');
+  document
+    .querySelectorAll('.bottom button')
+    .forEach(x=>x.classList.remove('active'));
+
+  const b=document.getElementById('nav-'+id);
+
+  if(b)b.classList.add('active');
 }
-function show(page){
-  current=page; setActive(page==='catalog'?'catalog':page==='ebook'?'ebook':page==='rekom'?'rekom':'home');
-  if(page==='home') home();
-  if(page==='admin') adminPage();
-  if(page==='ebook') ebookPage();
-  if(page==='catalog') catalogPage();
-  if(page==='rekom') rekomPage();
+
+
+/* =========================================================
+   MEMBACA GOOGLE SHEET
+   ========================================================= */
+
+async function getSheet(sheetName){
+
+  const url =
+    'https://docs.google.com/spreadsheets/d/' +
+    SPREADSHEET_ID +
+    '/gviz/tq?tqx=out:json&sheet=' +
+    encodeURIComponent(sheetName);
+
+  const response = await fetch(url);
+
+  if(!response.ok){
+    throw new Error(
+      'Google Sheet tidak dapat diakses (' +
+      response.status +
+      ')'
+    );
+  }
+
+  const text = await response.text();
+
+  /*
+   Google Visualization mengembalikan:
+   google.visualization.Query.setResponse({...})
+  */
+
+  const start = text.indexOf('{');
+  const end = text.lastIndexOf('}');
+
+  if(start === -1 || end === -1){
+    throw new Error(
+      'Format data dari sheet "' +
+      sheetName +
+      '" tidak dikenali.'
+    );
+  }
+
+  const json = JSON.parse(
+    text.substring(start,end+1)
+  );
+
+  if(!json.table){
+    throw new Error(
+      'Sheet "' +
+      sheetName +
+      '" tidak dapat dibaca.'
+    );
+  }
+
+  const cols = json.table.cols.map(
+    c => String(c.label || '').trim()
+  );
+
+  const rows = json.table.rows || [];
+
+  return rows.map(row=>{
+
+    const obj={};
+
+    cols.forEach((header,index)=>{
+
+      if(!header)return;
+
+      const cell =
+        row.c &&
+        row.c[index];
+
+      let value='';
+
+      if(cell){
+
+        if(cell.v !== null &&
+           cell.v !== undefined){
+
+          value=cell.v;
+        }
+
+        else if(cell.f !== null &&
+                cell.f !== undefined){
+
+          value=cell.f;
+        }
+      }
+
+      obj[header]=String(value ?? '').trim();
+
+    });
+
+    return obj;
+
+  }).filter(row =>
+    Object.values(row).some(v => String(v).trim() !== '')
+  );
 }
-function home(){
-  const i=DATA.info||{};
-  document.getElementById('content').innerHTML=`
-  <section class="hero">
-    <div class="hero-image"><div><h1>${esc(i.NAMA||'LENTERA')}</h1><p>${esc(i.SEKOLAH||'DWP SMAN 1 Ngronggot')}<br>${esc(i.SUBJUDUL||'Pusat Informasi Digital')}</p></div></div>
-    <div class="hero-card">
-      <div class="welcome">Selamat Datang di LENTERA</div>
-      <div class="muted">${esc(i.DESKRIPSI||'Pojok Literasi Kreatif')}</div>
-      <div class="grid">
-        <div class="menu-card" onclick="show('home')"><span class="ico">⌂</span>Beranda</div>
-        <div class="menu-card" onclick="show('admin')"><span class="ico">⚙</span>Administrasi & Inovasi</div>
-        <div class="menu-card" onclick="show('ebook')"><span class="ico">▣</span>E-Book</div>
-        <div class="menu-card" onclick="show('catalog')"><span class="ico">▤</span>Katalog Digital</div>
-        <div class="menu-card" onclick="show('rekom')"><span class="ico">♧</span>Rekomendasi Digital</div>
+
+
+/* =========================================================
+   MEMUAT SEMUA DATA
+   ========================================================= */
+
+async function loadData(){
+
+  try{
+
+    const [
+      books,
+      infoRows,
+      admin,
+      ebooks,
+      rekom,
+      petunjukRows,
+      pilihan
+    ] = await Promise.all([
+
+      getSheet(SHEETS.books),
+
+      getSheet(SHEETS.info),
+
+      getSheet(SHEETS.admin),
+
+      getSheet(SHEETS.ebooks),
+
+      getSheet(SHEETS.rekom),
+
+      getSheet(SHEETS.petunjuk),
+
+      getSheet(SHEETS.pilihan)
+
+    ]);
+
+
+    /* DATABASE BUKU */
+
+    DATA.books = books.map(b=>({
+
+      "No": b["No"] || "",
+      "Kode Buku": b["Kode Buku"] || "",
+      "Judul Buku": b["Judul Buku"] || "",
+      "Penulis": b["Penulis"] || "",
+      "Penerbit": b["Penerbit"] || "",
+      "Tahun": b["Tahun"] || "",
+      "Kategori": b["Kategori"] || "",
+      "Status": b["Status"] || ""
+
+    }));
+
+
+    /* PUSAT INFORMASI */
+
+    DATA.info={};
+
+    infoRows.forEach(row=>{
+
+      const key =
+        String(row["kunci"] || '')
+        .trim()
+        .toUpperCase();
+
+      const value =
+        String(row["nilai"] || '').trim();
+
+      if(key){
+        DATA.info[key]=value;
+      }
+
+    });
+
+
+    /* ADMIN INOVASI */
+
+    DATA.admin = admin.map((row,index)=>({
+
+      Judul:
+        row["judul"] ||
+        row["Judul"] ||
+        "",
+
+      /*
+       Karena sheet Anda saat ini hanya mempunyai
+       kolom judul, isi akan menggunakan judul.
+       Jika nanti ingin menambahkan isi,
+       kita bisa menambah kolomnya.
+      */
+
+      Isi:
+        row["isi"] ||
+        row["Isi"] ||
+        "",
+
+      Icon:
+        row["icon"] ||
+        row["Icon"] ||
+        ['📚','📋','📖','💡'][index % 4]
+
+    })).filter(r=>r.Judul);
+
+
+    /* E-BOOK */
+
+    DATA.ebooks = ebooks.map(row=>({
+
+      Judul:
+        row["judul"] ||
+        row["Judul"] ||
+        "",
+
+      Deskripsi:
+        row["deskripsi"] ||
+        row["Deskripsi"] ||
+        "",
+
+      Link:
+        row["link"] ||
+        row["Link"] ||
+        "",
+
+      Icon:
+        row["icon"] ||
+        row["Icon"] ||
+        "📚"
+
+    })).filter(r=>r.Judul);
+
+
+    /* REKOMENDASI */
+
+    DATA.rekom = rekom.map(row=>({
+
+      Judul:
+        row["judul"] ||
+        row["Judul"] ||
+        "",
+
+      Deskripsi:
+        row["deskripsi"] ||
+        row["Deskripsi"] ||
+        "",
+
+      Link:
+        row["link"] ||
+        row["Link"] ||
+        "",
+
+      Kategori:
+        row["kategori"] ||
+        row["Kategori"] ||
+        ""
+
+    })).filter(r=>r.Judul);
+
+
+    /* PETUNJUK */
+
+    DATA.petunjuk =
+      petunjukRows
+        .map(row =>
+          Object.values(row)
+            .find(v => String(v).trim() !== '') || ''
+        )
+        .join('\n');
+
+
+    /* DAFTAR PILIHAN */
+
+    DATA.pilihan={
+      kategori:[],
+      status:[]
+    };
+
+    pilihan.forEach(row=>{
+
+      const kategori =
+        String(
+          row["kategori"] ||
+          row["Kategori"] ||
+          ''
+        ).trim();
+
+      const status =
+        String(
+          row["status"] ||
+          row["Status"] ||
+          ''
+        ).trim();
+
+      if(kategori &&
+         !DATA.pilihan.kategori.includes(kategori)){
+
+        DATA.pilihan.kategori.push(kategori);
+
+      }
+
+      if(status &&
+         !DATA.pilihan.status.includes(status)){
+
+        DATA.pilihan.status.push(status);
+
+      }
+
+    });
+
+
+    /*
+     Jika daftar pilihan kosong,
+     kategori/status tetap dibuat dari
+     database buku.
+    */
+
+    if(DATA.pilihan.kategori.length===0){
+
+      DATA.pilihan.kategori =
+        [...new Set(
+          DATA.books
+            .map(b=>b.Kategori)
+            .filter(Boolean)
+        )];
+
+    }
+
+
+    if(DATA.pilihan.status.length===0){
+
+      DATA.pilihan.status =
+        [...new Set(
+          DATA.books
+            .map(b=>b.Status)
+            .filter(Boolean)
+        )];
+
+    }
+
+
+    DATA.pilihan.kategori.sort(
+      (a,b)=>a.localeCompare(b)
+    );
+
+    DATA.pilihan.status.sort(
+      (a,b)=>a.localeCompare(b)
+    );
+
+
+    console.log('Data LENTERA berhasil dimuat:',DATA);
+
+    home();
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    document.getElementById('content').innerHTML=`
+
+      <div class="error-box">
+
+        <b>⚠️ Data LENTERA belum dapat dimuat.</b>
+
+        <br><br>
+
+        Website berhasil dibuka, tetapi belum dapat
+        mengambil data dari Google Sheet.
+
+        <br><br>
+
+        Pastikan Google Sheet sudah disetel:
+
+        <br>
+        <b>Bagikan → Akses umum →
+        Siapa saja yang memiliki link →
+        Pelihat</b>
+
+        <br><br>
+
+        Setelah itu muat ulang halaman.
+
+        <br><br>
+
+        <small>
+        Detail teknis: ${esc(error.message)}
+        </small>
+
       </div>
-      <div class="quote" style="margin-top:14px">📚 Membaca hari ini, untuk masa depan yang lebih baik.</div>
-    </div>
-  </section>`;
+
+    `;
+
+  }
+
 }
+
+
+/* =========================================================
+   NAVIGASI
+   ========================================================= */
+
+function show(page){
+
+  current=page;
+
+  setActive(
+    page==='catalog'
+      ?'catalog'
+      :page==='ebook'
+      ?'ebook'
+      :page==='rekom'
+      ?'rekom'
+      :'home'
+  );
+
+  if(page==='home')home();
+  if(page==='admin')adminPage();
+  if(page==='ebook')ebookPage();
+  if(page==='catalog')catalogPage();
+  if(page==='rekom')rekomPage();
+
+}
+
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+function home(){
+
+  const i=DATA.info||{};
+
+  document.getElementById('content').innerHTML=`
+
+  <section class="hero">
+
+    <div class="hero-image">
+
+      <div>
+
+        <h1>${esc(i.NAMA||'LENTERA')}</h1>
+
+        <p>
+          ${esc(i.SEKOLAH||'DWP SMAN 1 Ngronggot')}
+          <br>
+          ${esc(i.SUBJUDUL||'Pusat Informasi Digital')}
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="hero-card">
+
+      <div class="welcome">
+        Selamat Datang di LENTERA
+      </div>
+
+      <div class="muted">
+        ${esc(i.DESKRIPSI||'Pojok Literasi Kreatif')}
+      </div>
+
+      <div class="grid">
+
+        <div class="menu-card"
+             onclick="show('home')">
+
+          <span class="ico">⌂</span>
+          Beranda
+
+        </div>
+
+        <div class="menu-card"
+             onclick="show('admin')">
+
+          <span class="ico">⚙</span>
+          Administrasi & Inovasi
+
+        </div>
+
+        <div class="menu-card"
+             onclick="show('ebook')">
+
+          <span class="ico">▣</span>
+          E-Book
+
+        </div>
+
+        <div class="menu-card"
+             onclick="show('catalog')">
+
+          <span class="ico">▤</span>
+          Katalog Digital
+
+        </div>
+
+        <div class="menu-card"
+             onclick="show('rekom')">
+
+          <span class="ico">♧</span>
+          Rekomendasi Digital
+
+        </div>
+
+      </div>
+
+      <div class="quote" style="margin-top:14px">
+
+        📚 Membaca hari ini,
+        untuk masa depan yang lebih baik.
+
+      </div>
+
+    </div>
+
+  </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   ADMINISTRASI & INOVASI
+   ========================================================= */
+
 function adminPage(){
+
   const rows=DATA.admin||[];
-  document.getElementById('content').innerHTML=`<section class="section">
-    <button class="btn secondary back" onclick="show('home')">← Kembali</button>
-    <h2 class="section-title">⚙️ Administrasi & Inovasi</h2>
-    <div class="section-sub">Informasi, program, dan inovasi LENTERA.</div>
-    ${rows.map((r,idx)=>`<div class="card"><div class="card-row"><div class="card-icon">${esc(r.Icon||['📚','📋','📖','💡'][idx%4])}</div><div><h3>${esc(r.Judul)}</h3><p>${esc(r.Isi)}</p></div></div></div>`).join('')}
-  </section>`;
-}
-function ebookPage(){
-  document.getElementById('content').innerHTML=`<section class="section">
-    <button class="btn secondary back" onclick="show('home')">← Kembali</button>
-    <h2 class="section-title">📚 E-Book</h2>
-    <div class="section-sub">Temukan berbagai sumber bacaan digital terpercaya.</div>
-    ${(DATA.ebooks||[]).map(r=>`<div class="card"><div class="card-row"><div class="card-icon">${esc(r.Icon||'📚')}</div><div style="flex:1"><h3>${esc(r.Judul)}</h3><p>${esc(r.Deskripsi)}</p><div class="actions"><a class="btn" href="${esc(r.Link)}" target="_blank" rel="noopener">Buka E-Book ↗</a></div></div></div></div>`).join('')}
-  </section>`;
-}
-function catalogPage(){
-  const cats=[...new Set(DATA.books.map(b=>b.Kategori).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-  document.getElementById('content').innerHTML=`<section class="section">
-    <button class="btn secondary back" onclick="show('home')">← Kembali</button>
-    <h2 class="section-title">📖 Katalog Digital</h2>
-    <div class="section-sub">Cari buku berdasarkan judul, penulis, penerbit, atau kategori.</div>
-    <div class="searchbox"><input id="q" placeholder="🔍 Cari judul, penulis..." oninput="filterBooks()"><button class="btn" onclick="filterBooks()">Cari</button></div>
-    <div class="selects"><select id="cat" onchange="filterBooks()"><option value="">Semua Kategori</option>${cats.map(c=>`<option>${esc(c)}</option>`).join('')}</select><select id="stat" onchange="filterBooks()"><option value="">Semua Status</option><option>Tersedia</option><option>Dipinjam</option></select></div>
-    <div id="results"></div>
-  </section>`;
-  filterBooks();
-}
-function filterBooks(){
-  const q=(document.getElementById('q')?.value||'').toLowerCase().trim();
-  const cat=document.getElementById('cat')?.value||'', stat=document.getElementById('stat')?.value||'';
-  const arr=DATA.books.filter(b=>{
-    const text=[b['Judul Buku'],b.Penulis,b.Penerbit,b.Kategori,b['Kode Buku']].join(' ').toLowerCase();
-    return (!q||text.includes(q))&&(!cat||b.Kategori===cat)&&(!stat||b.Status===stat);
-  });
-  const shown=arr.slice(0,30);
-  document.getElementById('results').innerHTML=`<div class="count">Menampilkan ${shown.length} dari ${arr.length} buku yang sesuai.</div>`+
-  (shown.length?shown.map(b=>`<div class="book-card">
-    <div class="book-cover">${esc(b['Judul Buku']).slice(0,26)}</div>
-    <div class="book-info"><div class="book-title">${esc(b['Judul Buku'])}</div><div class="book-meta">${esc(b.Penulis)}<br>Kategori: ${esc(b.Kategori)}<br>Status: <span class="status">${esc(b.Status||'')}</span></div>
-    <div class="actions"><button class="btn" onclick='detail(${JSON.stringify(b)})'>Detail</button></div></div></div>`).join(''):'<div class="empty">📚 Buku tidak ditemukan.<br>Coba kata kunci atau kategori lain.</div>');
-}
-function detail(b){
-  document.getElementById('content').innerHTML=`<section class="section">
-    <button class="btn secondary back" onclick="catalogPage()">← Kembali ke Katalog</button>
-    <div class="detail-head"><div class="detail-cover">${esc(b['Judul Buku'])}</div><div><div class="detail-title">${esc(b['Judul Buku'])}</div><div class="detail-author">${esc(b.Penulis)}</div></div></div>
-    <div class="table">
-      <div class="tr"><b>Kode Buku</b><span>${esc(b['Kode Buku'])}</span></div>
-      <div class="tr"><b>Penulis</b><span>${esc(b.Penulis)}</span></div>
-      <div class="tr"><b>Penerbit</b><span>${esc(b.Penerbit)}</span></div>
-      <div class="tr"><b>Tahun</b><span>${esc(b.Tahun)}</span></div>
-      <div class="tr"><b>Kategori</b><span>${esc(b.Kategori)}</span></div>
-      <div class="tr"><b>Status</b><span class="status">${esc(b.Status)}</span></div>
+
+  document.getElementById('content').innerHTML=`
+
+  <section class="section">
+
+    <button class="btn secondary back"
+            onclick="show('home')">
+      ← Kembali
+    </button>
+
+    <h2 class="section-title">
+      ⚙️ Administrasi & Inovasi
+    </h2>
+
+    <div class="section-sub">
+      Informasi, program, dan inovasi LENTERA.
     </div>
-  </section>`;
+
+    ${
+      rows.length
+      ? rows.map((r,idx)=>`
+
+        <div class="card">
+
+          <div class="card-row">
+
+            <div class="card-icon">
+              ${esc(
+                r.Icon ||
+                ['📚','📋','📖','💡'][idx%4]
+              )}
+            </div>
+
+            <div>
+
+              <h3>
+                ${esc(r.Judul)}
+              </h3>
+
+              ${
+                r.Isi
+                ? `<p>${esc(r.Isi)}</p>`
+                : ''
+              }
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `).join('')
+      : `<div class="empty">
+          Belum ada data Administrasi & Inovasi.
+        </div>`
+    }
+
+  </section>
+
+  `;
+
 }
+
+
+/* =========================================================
+   E-BOOK
+   ========================================================= */
+
+function ebookPage(){
+
+  document.getElementById('content').innerHTML=`
+
+  <section class="section">
+
+    <button class="btn secondary back"
+            onclick="show('home')">
+      ← Kembali
+    </button>
+
+    <h2 class="section-title">
+      📚 E-Book
+    </h2>
+
+    <div class="section-sub">
+      Temukan berbagai sumber bacaan digital terpercaya.
+    </div>
+
+    ${
+      (DATA.ebooks||[]).length
+
+      ? DATA.ebooks.map(r=>`
+
+        <div class="card">
+
+          <div class="card-row">
+
+            <div class="card-icon">
+              ${esc(r.Icon||'📚')}
+            </div>
+
+            <div style="flex:1">
+
+              <h3>
+                ${esc(r.Judul)}
+              </h3>
+
+              <p>
+                ${esc(r.Deskripsi)}
+              </p>
+
+              ${
+                r.Link
+                ? `<div class="actions">
+
+                    <a class="btn"
+                       href="${esc(r.Link)}"
+                       target="_blank"
+                       rel="noopener">
+
+                      Buka E-Book ↗
+
+                    </a>
+
+                   </div>`
+                : ''
+              }
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `).join('')
+
+      : `<div class="empty">
+          Belum ada e-book.
+        </div>`
+    }
+
+  </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   KATALOG
+   ========================================================= */
+
+function catalogPage(){
+
+  const cats =
+    (
+      DATA.pilihan &&
+      DATA.pilihan.kategori &&
+      DATA.pilihan.kategori.length
+    )
+    ? DATA.pilihan.kategori
+    : [...new Set(
+        DATA.books
+          .map(b=>b.Kategori)
+          .filter(Boolean)
+      )];
+
+  const stats =
+    (
+      DATA.pilihan &&
+      DATA.pilihan.status &&
+      DATA.pilihan.status.length
+    )
+    ? DATA.pilihan.status
+    : [...new Set(
+        DATA.books
+          .map(b=>b.Status)
+          .filter(Boolean)
+      )];
+
+
+  document.getElementById('content').innerHTML=`
+
+  <section class="section">
+
+    <button class="btn secondary back"
+            onclick="show('home')">
+
+      ← Kembali
+
+    </button>
+
+    <h2 class="section-title">
+      📖 Katalog Digital
+    </h2>
+
+    <div class="section-sub">
+
+      Cari buku berdasarkan judul,
+      penulis, penerbit, atau kategori.
+
+    </div>
+
+    <div class="searchbox">
+
+      <input
+        id="q"
+        placeholder="🔍 Cari judul, penulis..."
+        oninput="filterBooks()">
+
+      <button class="btn"
+              onclick="filterBooks()">
+
+        Cari
+
+      </button>
+
+    </div>
+
+    <div class="selects">
+
+      <select id="cat"
+              onchange="filterBooks()">
+
+        <option value="">
+          Semua Kategori
+        </option>
+
+        ${
+          cats.map(c=>
+            `<option value="${esc(c)}">
+              ${esc(c)}
+            </option>`
+          ).join('')
+        }
+
+      </select>
+
+
+      <select id="stat"
+              onchange="filterBooks()">
+
+        <option value="">
+          Semua Status
+        </option>
+
+        ${
+          stats.map(s=>
+            `<option value="${esc(s)}">
+              ${esc(s)}
+            </option>`
+          ).join('')
+        }
+
+      </select>
+
+    </div>
+
+    <div id="results"></div>
+
+  </section>
+
+  `;
+
+  filterBooks();
+
+}
+
+
+/* =========================================================
+   FILTER BUKU
+   ========================================================= */
+
+function filterBooks(){
+
+  const q=
+    (
+      document.getElementById('q')?.value||''
+    ).toLowerCase().trim();
+
+  const cat=
+    document.getElementById('cat')?.value||'';
+
+  const stat=
+    document.getElementById('stat')?.value||'';
+
+
+  const arr=DATA.books.filter(b=>{
+
+    const text=[
+      b['Judul Buku'],
+      b.Penulis,
+      b.Penerbit,
+      b.Kategori,
+      b['Kode Buku']
+    ]
+    .join(' ')
+    .toLowerCase();
+
+    return (
+      (!q || text.includes(q)) &&
+      (!cat || b.Kategori===cat) &&
+      (!stat || b.Status===stat)
+    );
+
+  });
+
+
+  const shown=arr.slice(0,30);
+
+
+  const results=
+    document.getElementById('results');
+
+  if(!results)return;
+
+
+  results.innerHTML=
+
+    `<div class="count">
+      Menampilkan ${shown.length}
+      dari ${arr.length} buku yang sesuai.
+    </div>`
+
+    +
+
+    (
+
+      shown.length
+
+      ?
+
+      shown.map(b=>`
+
+        <div class="book-card">
+
+          <div class="book-cover">
+
+            ${esc(
+              b['Judul Buku']
+            ).slice(0,26)}
+
+          </div>
+
+          <div class="book-info">
+
+            <div class="book-title">
+
+              ${esc(b['Judul Buku'])}
+
+            </div>
+
+            <div class="book-meta">
+
+              ${esc(b.Penulis)}
+
+              <br>
+
+              Kategori:
+              ${esc(b.Kategori)}
+
+              <br>
+
+              Status:
+
+              <span class="status">
+
+                ${esc(b.Status||'')}
+
+              </span>
+
+            </div>
+
+            <div class="actions">
+
+              <button
+                class="btn"
+                onclick='detail(${JSON.stringify(b)})'>
+
+                Detail
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `).join('')
+
+      :
+
+      `<div class="empty">
+
+        📚 Buku tidak ditemukan.
+
+        <br>
+
+        Coba kata kunci atau kategori lain.
+
+      </div>`
+
+    );
+
+}
+
+
+/* =========================================================
+   DETAIL BUKU
+   ========================================================= */
+
+function detail(b){
+
+  document.getElementById('content').innerHTML=`
+
+  <section class="section">
+
+    <button
+      class="btn secondary back"
+      onclick="catalogPage()">
+
+      ← Kembali ke Katalog
+
+    </button>
+
+    <div class="detail-head">
+
+      <div class="detail-cover">
+
+        ${esc(b['Judul Buku'])}
+
+      </div>
+
+      <div>
+
+        <div class="detail-title">
+
+          ${esc(b['Judul Buku'])}
+
+        </div>
+
+        <div class="detail-author">
+
+          ${esc(b.Penulis)}
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="table">
+
+      <div class="tr">
+
+        <b>Kode Buku</b>
+
+        <span>${esc(b['Kode Buku'])}</span>
+
+      </div>
+
+      <div class="tr">
+
+        <b>Penulis</b>
+
+        <span>${esc(b.Penulis)}</span>
+
+      </div>
+
+      <div class="tr">
+
+        <b>Penerbit</b>
+
+        <span>${esc(b.Penerbit)}</span>
+
+      </div>
+
+      <div class="tr">
+
+        <b>Tahun</b>
+
+        <span>${esc(b.Tahun)}</span>
+
+      </div>
+
+      <div class="tr">
+
+        <b>Kategori</b>
+
+        <span>${esc(b.Kategori)}</span>
+
+      </div>
+
+      <div class="tr">
+
+        <b>Status</b>
+
+        <span class="status">
+
+          ${esc(b.Status)}
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   REKOMENDASI DIGITAL
+   ========================================================= */
+
 function rekomPage(){
-  document.getElementById('content').innerHTML=`<section class="section">
-    <button class="btn secondary back" onclick="show('home')">← Kembali</button>
-    <h2 class="section-title">💡 Rekomendasi Digital</h2>
-    <div class="section-sub">Manfaatkan berbagai platform digital untuk menambah wawasan dan keterampilan.</div>
-    ${(DATA.rekom||[]).map(r=>`<div class="card"><div class="card-row"><div class="card-icon">💡</div><div style="flex:1"><h3>${esc(r.Judul)}</h3><p>${esc(r.Deskripsi)}</p><div class="actions"><a class="btn" href="${esc(r.Link)}" target="_blank" rel="noopener">Kunjungi ↗</a></div></div></div></div>`).join('')}
-  </section>`;
+
+  document.getElementById('content').innerHTML=`
+
+  <section class="section">
+
+    <button
+      class="btn secondary back"
+      onclick="show('home')">
+
+      ← Kembali
+
+    </button>
+
+    <h2 class="section-title">
+
+      💡 Rekomendasi Digital
+
+    </h2>
+
+    <div class="section-sub">
+
+      Manfaatkan berbagai platform digital
+      untuk menambah wawasan dan keterampilan.
+
+    </div>
+
+    ${
+      (DATA.rekom||[]).length
+
+      ?
+
+      DATA.rekom.map(r=>`
+
+        <div class="card">
+
+          <div class="card-row">
+
+            <div class="card-icon">
+              💡
+            </div>
+
+            <div style="flex:1">
+
+              <h3>
+                ${esc(r.Judul)}
+              </h3>
+
+              <p>
+                ${esc(r.Deskripsi)}
+              </p>
+
+              ${
+                r.Link
+
+                ?
+
+                `<div class="actions">
+
+                  <a
+                    class="btn"
+                    href="${esc(r.Link)}"
+                    target="_blank"
+                    rel="noopener">
+
+                    Kunjungi ↗
+
+                  </a>
+
+                </div>`
+
+                : ''
+
+              }
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `).join('')
+
+      :
+
+      `<div class="empty">
+
+        Belum ada rekomendasi digital.
+
+      </div>`
+
+    }
+
+  </section>
+
+  `;
+
 }
-home();
+
+
+/* =========================================================
+   MULAI WEBSITE
+   ========================================================= */
+
+loadData();
+
 </script>
+
 </body>
 </html>

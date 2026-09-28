@@ -1,412 +1,493 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LENTERA — Pusat Informasi Digital</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1565c0">
+
+<title>LENTERA DWP SMAN 1 Ngronggot</title>
 
 <style>
-:root{
-  --blue:#075aa8; --blue2:#0b79d0; --navy:#06427f; --soft:#eef7ff;
-  --line:#dceaf6; --text:#17324d; --muted:#6a8196; --green:#1caa61;
-  --shadow:0 8px 25px rgba(17,76,126,.10); --radius:18px;
-}
-*{box-sizing:border-box}
-body{
+*{
+  box-sizing:border-box;
   margin:0;
+  padding:0;
+}
+
+body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#edf6fd;
-  color:var(--text)
+  background:#f3f7fb;
+  color:#263238;
+  padding-bottom:80px;
 }
-button,input,select{font:inherit}
-.app{
-  max-width:480px;
-  margin:0 auto;
-  min-height:100vh;
-  background:#fff;
-  box-shadow:0 0 35px rgba(0,0,0,.08)
+
+button,
+input,
+select{
+  font-family:inherit;
 }
+
+button{
+  cursor:pointer;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
 .topbar{
   position:sticky;
   top:0;
-  z-index:20;
-  height:62px;
-  background:linear-gradient(135deg,#06447f,#0878c9);
+  z-index:1000;
+  height:60px;
+  background:#1565c0;
   color:white;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:0 16px
+  justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
-.brand{
-  font-weight:800;
-  letter-spacing:.5px;
+
+.topbar-title{
   font-size:18px;
-  display:flex;
-  gap:8px;
-  align-items:center
+  font-weight:bold;
 }
-.brand-mark{font-size:22px}
-.icon-btn{
-  border:0;
-  background:transparent;
-  color:white;
-  font-size:24px;
-  cursor:pointer
-}
-main{padding-bottom:78px}
-.hero{
-  background:linear-gradient(
-    180deg,
-    #064b8b 0%,
-    #087bcf 56%,
-    #eaf6ff 56%,
-    #fff 100%
-  );
-  padding:0 14px 18px
-}
-.hero-image{
-  height:190px;
-  border-radius:0 0 24px 24px;
-  display:flex;
-  align-items:flex-end;
-  padding:18px 16px;
-  background:
-  linear-gradient(180deg,rgba(0,54,110,.08),rgba(0,45,95,.78)),
-  linear-gradient(135deg,#79b9e9,#d8efff);
-  color:#fff
-}
-.hero h1{font-size:29px;margin:0 0 4px}
-.hero p{margin:0;font-size:13px;line-height:1.5}
-.hero-card{
-  background:white;
-  border-radius:22px;
-  margin:-1px 2px 0;
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  width:100%;
+  max-width:700px;
+  margin:auto;
   padding:15px;
-  box-shadow:var(--shadow)
 }
-.welcome{
-  font-size:19px;
-  font-weight:800;
-  color:var(--navy);
-  margin:0 0 5px
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  display:none;
 }
-.muted{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.5
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-  margin-top:14px
-}
-.grid .menu-card:nth-child(4),
-.grid .menu-card:nth-child(5){
-  grid-column:span 1
-}
-.menu-card{
-  border:1px solid var(--line);
-  background:#f8fcff;
-  border-radius:15px;
-  padding:13px 7px;
-  text-align:center;
-  cursor:pointer;
-  color:var(--navy);
-  font-weight:700;
-  font-size:11px;
-  min-height:82px
-}
-.menu-card .ico{
+
+.page.active{
   display:block;
-  font-size:26px;
-  margin-bottom:7px
 }
-.section{padding:18px 14px}
-.section-title{
-  font-size:20px;
-  color:var(--navy);
-  margin:0 0 6px;
-  font-weight:800
-}
-.section-sub{
-  font-size:13px;
-  color:var(--muted);
-  margin-bottom:14px
-}
-.card{
-  border:1px solid var(--line);
-  border-radius:17px;
-  padding:14px;
-  background:#fff;
-  box-shadow:var(--shadow);
-  margin-bottom:11px
-}
-.card-row{
-  display:flex;
-  gap:12px;
-  align-items:flex-start
-}
-.card-icon{
-  width:46px;
-  height:46px;
-  border-radius:14px;
-  background:var(--soft);
-  display:grid;
-  place-items:center;
-  font-size:24px;
-  flex:0 0 auto
-}
-.card h3{
-  margin:0 0 5px;
-  color:var(--navy);
-  font-size:15px
-}
-.card p{
-  margin:0;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.5
-}
-.btn{
-  border:0;
-  background:linear-gradient(135deg,#0872c7,#0792dc);
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:linear-gradient(135deg,#1565c0,#42a5f5);
   color:white;
-  border-radius:999px;
-  padding:9px 14px;
+  border-radius:20px;
+  padding:25px 20px;
+  margin-bottom:18px;
+  box-shadow:0 5px 15px rgba(21,101,192,.25);
+}
+
+.hero h1{
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+
+.card h2{
+  color:#1565c0;
+  font-size:19px;
+  margin-bottom:10px;
+}
+
+.card h3{
+  font-size:17px;
+  margin-bottom:7px;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.6;
+  color:#546e7a;
+}
+
+/* =========================
+   MENU HOME
+========================= */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.menu-card{
+  background:white;
+  border-radius:16px;
+  padding:20px 12px;
+  text-align:center;
+  box-shadow:0 2px 9px rgba(0,0,0,.07);
+  border:1px solid #e8eef4;
+  transition:.2s;
+}
+
+.menu-card:active{
+  transform:scale(.97);
+}
+
+.menu-icon{
+  font-size:32px;
+  margin-bottom:9px;
+}
+
+.menu-card h3{
+  font-size:15px;
+  color:#1565c0;
+}
+
+.menu-card p{
   font-size:12px;
-  font-weight:700;
-  cursor:pointer;
+  color:#78909c;
+  margin-top:5px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+  display:inline-block;
+  border:none;
+  border-radius:10px;
+  padding:10px 15px;
+  background:#1565c0;
+  color:white;
   text-decoration:none;
-  display:inline-block
-}
-.btn.secondary{
-  background:#edf7ff;
-  color:#0863a8
-}
-.actions{
+  font-size:14px;
   margin-top:10px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap
 }
-.searchbox{
-  display:flex;
-  gap:8px;
-  margin:12px 0
+
+.btn:hover{
+  background:#0d47a1;
 }
-.searchbox input{
-  flex:1;
-  border:1px solid #cfe2f2;
+
+.btn-secondary{
+  background:#e3f2fd;
+  color:#1565c0;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+  position:relative;
+  margin-bottom:12px;
+}
+
+.search-box input{
+  width:100%;
+  padding:13px 15px;
+  border:1px solid #d5e0e8;
   border-radius:12px;
-  padding:12px 13px;
-  outline:none
+  outline:none;
+  background:white;
+  font-size:14px;
 }
-.searchbox input:focus{
-  border-color:#1684d5;
-  box-shadow:0 0 0 3px #e5f4ff
+
+.search-box input:focus{
+  border-color:#1565c0;
 }
-.selects{
+
+/* =========================
+   FILTER
+========================= */
+
+.filter-row{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-bottom:12px
+  gap:10px;
+  margin-bottom:15px;
 }
-.selects select{
+
+.filter-row select{
   width:100%;
-  border:1px solid #cfe2f2;
-  border-radius:11px;
-  padding:10px;
-  background:white;
-  color:var(--text)
-}
-.count{
-  font-size:12px;
-  color:var(--muted);
-  margin:8px 0 10px
-}
-.book-card{
-  display:flex;
-  gap:11px;
   padding:11px;
-  border:1px solid var(--line);
-  border-radius:15px;
-  margin-bottom:9px
-}
-.book-cover{
-  width:64px;
-  height:82px;
-  border-radius:8px;
-  background:linear-gradient(145deg,#075aa8,#63b5eb);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  font-weight:800;
-  font-size:11px;
-  text-align:center;
-  padding:6px;
-  flex:0 0 auto
-}
-.book-info{
-  min-width:0;
-  flex:1
-}
-.book-title{
-  font-weight:800;
-  color:var(--navy);
-  font-size:14px;
-  line-height:1.25
-}
-.book-meta{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:4px;
-  line-height:1.45
-}
-.status{
-  display:inline-block;
-  color:#0b8b4e;
-  background:#e4f8ed;
-  padding:3px 7px;
-  border-radius:999px;
-  font-size:10px;
-  font-weight:700
-}
-.detail-head{
-  display:flex;
-  gap:15px;
-  align-items:center;
-  margin-bottom:15px
-}
-.detail-cover{
-  width:115px;
-  height:155px;
+  border:1px solid #d5e0e8;
   border-radius:10px;
-  background:linear-gradient(145deg,#075aa8,#67b8ec);
+  background:white;
+  outline:none;
+}
+
+/* =========================
+   BOOK ITEM
+========================= */
+
+.book-item{
+  background:white;
+  border-radius:14px;
+  padding:15px;
+  margin-bottom:10px;
+  border:1px solid #e6edf2;
+  box-shadow:0 2px 7px rgba(0,0,0,.05);
+}
+
+.book-code{
+  display:inline-block;
+  font-size:11px;
+  background:#e3f2fd;
+  color:#1565c0;
+  padding:4px 8px;
+  border-radius:20px;
+  margin-bottom:8px;
+}
+
+.book-title{
+  font-weight:bold;
+  color:#263238;
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.book-info{
+  font-size:13px;
+  color:#607d8b;
+  line-height:1.6;
+}
+
+.book-status{
+  display:inline-block;
+  margin-top:8px;
+  padding:4px 8px;
+  border-radius:20px;
+  font-size:11px;
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+/* =========================
+   EBOOK / REKOMENDASI
+========================= */
+
+.resource-item{
+  display:flex;
+  gap:13px;
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.resource-icon{
+  width:48px;
+  height:48px;
+  min-width:48px;
+  border-radius:12px;
+  background:#e3f2fd;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#fff;
-  font-weight:800;
-  text-align:center;
-  padding:12px
+  font-size:25px;
 }
-.detail-title{
-  font-size:22px;
-  color:var(--navy);
-  font-weight:800;
-  margin-bottom:4px
+
+.resource-content{
+  flex:1;
 }
-.detail-author{
-  font-size:13px;
-  color:var(--muted)
+
+.resource-content h3{
+  font-size:16px;
+  color:#1565c0;
+  margin-bottom:5px;
 }
-.table{
-  border:1px solid var(--line);
-  border-radius:14px;
-  overflow:hidden
-}
-.tr{
-  display:grid;
-  grid-template-columns:105px 1fr;
-  padding:10px 12px;
-  border-bottom:1px solid var(--line);
-  font-size:12px
-}
-.tr:last-child{border-bottom:0}
-.tr b{color:var(--navy)}
-.quote{
-  background:#eaf7ff;
-  border:1px solid #c9e9ff;
-  border-radius:15px;
-  padding:14px;
+
+.resource-content p{
   font-size:13px;
   line-height:1.5;
-  color:#155d8f
+  color:#607d8b;
 }
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(480px,100%);
-  height:68px;
-  background:#064b88;
-  color:white;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  z-index:30;
-  box-shadow:0 -4px 18px rgba(0,0,0,.12)
-}
-.bottom button{
-  border:0;
-  background:transparent;
-  color:white;
-  font-size:10px;
-  cursor:pointer;
-  padding:5px
-}
-.bottom .ico{
-  display:block;
-  font-size:21px;
-  margin-bottom:3px
-}
-.bottom button.active{background:#0879c9}
-.empty{
-  text-align:center;
-  padding:30px 10px;
-  color:var(--muted);
-  font-size:13px
-}
-.back{margin-bottom:12px}
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:82px;
-  transform:translateX(-50%);
-  background:#123d61;
-  color:#fff;
-  padding:9px 14px;
-  border-radius:999px;
+
+.resource-category{
+  display:inline-block;
   font-size:11px;
-  display:none;
-  z-index:50;
-  max-width:90%;
-  text-align:center
+  padding:3px 7px;
+  background:#f1f8e9;
+  color:#558b2f;
+  border-radius:20px;
+  margin-top:7px;
 }
+
+/* =========================
+   DETAIL
+========================= */
+
+.detail-title{
+  font-size:22px;
+  color:#1565c0;
+  margin-bottom:15px;
+}
+
+.detail-row{
+  padding:10px 0;
+  border-bottom:1px solid #edf1f4;
+}
+
+.detail-label{
+  font-size:12px;
+  color:#78909c;
+}
+
+.detail-value{
+  font-size:15px;
+  margin-top:3px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
 .loading{
   text-align:center;
-  padding:55px 20px;
-  color:var(--muted);
-  font-size:13px
+  padding:35px 10px;
+  color:#607d8b;
 }
-.loading .spin{
-  font-size:30px;
-  display:block;
-  margin-bottom:10px;
-  animation:putar 1s linear infinite
+
+.spinner{
+  width:35px;
+  height:35px;
+  border:4px solid #e3f2fd;
+  border-top-color:#1565c0;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:0 auto 12px;
 }
-@keyframes putar{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
 }
-.error-box{
-  margin:20px 14px;
-  padding:16px;
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  text-align:center;
+  padding:30px 15px;
+  color:#78909c;
+  background:white;
   border-radius:15px;
-  background:#fff4f4;
-  border:1px solid #f0cccc;
-  color:#8a3030;
-  font-size:13px;
-  line-height:1.5
 }
+
+.empty-icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error-box{
+  background:#ffebee;
+  color:#c62828;
+  padding:14px;
+  border-radius:12px;
+  margin-bottom:15px;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* =========================
+   STATUS DATA
+========================= */
+
+.data-info{
+  background:#e3f2fd;
+  color:#1565c0;
+  padding:10px 13px;
+  border-radius:10px;
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  height:68px;
+  background:white;
+  border-top:1px solid #e5e5e5;
+  display:flex;
+  justify-content:space-around;
+  box-shadow:0 -3px 12px rgba(0,0,0,.08);
+}
+
+.nav-btn{
+  flex:1;
+  border:none;
+  background:white;
+  color:#78909c;
+  font-size:11px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+}
+
+.nav-btn span{
+  font-size:23px;
+}
+
+.nav-btn.active{
+  color:#1565c0;
+  font-weight:bold;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
 @media(min-width:700px){
-  body{padding:20px}
-  .app{
-    border-radius:25px;
-    overflow:hidden
+
+  .container{
+    padding:25px;
+  }
+
+  .menu-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .bottom-nav{
+    max-width:700px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:18px 18px 0 0;
   }
 }
 </style>
@@ -414,1279 +495,1513 @@ main{padding-bottom:78px}
 
 <body>
 
-<div class="app">
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-title">📚 LENTERA DWP SMAN 1 Ngronggot</div>
+</div>
 
-<header class="topbar">
-  <button class="icon-btn" onclick="show('home')" aria-label="Menu">☰</button>
+<!-- =========================
+     HOME
+========================= -->
 
-  <div class="brand">
-    <span class="brand-mark">📖</span>LENTERA
+<div id="home" class="page active">
+  <div class="container">
+
+    <div class="hero">
+      <h1>📚 LENTERA</h1>
+      <p>
+        Pojok Baca LENTERA DWP SMAN 1 Ngronggot
+        <br>
+        Pusat informasi dan literasi digital.
+      </p>
+    </div>
+
+    <div id="homeDataInfo"></div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card" onclick="show('admin')">
+        <div class="menu-icon">⚙️</div>
+        <h3>Administrasi & Inovasi</h3>
+        <p>Informasi kegiatan LENTERA</p>
+      </div>
+
+      <div class="menu-card" onclick="show('ebook')">
+        <div class="menu-icon">📖</div>
+        <h3>E-Book</h3>
+        <p>Koleksi bacaan digital</p>
+      </div>
+
+      <div class="menu-card" onclick="show('catalog')">
+        <div class="menu-icon">📚</div>
+        <h3>Katalog Buku</h3>
+        <p>Cari koleksi buku LENTERA</p>
+      </div>
+
+      <div class="menu-card" onclick="show('rekom')">
+        <div class="menu-icon">💡</div>
+        <h3>Rekomendasi Digital</h3>
+        <p>Sumber belajar pilihan</p>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:15px;">
+      <h2>✨ Selamat Datang</h2>
+      <p id="homeInfo">
+        Selamat datang di Pusat Informasi Digital LENTERA.
+      </p>
+    </div>
+
   </div>
+</div>
 
-  <button class="icon-btn"
-          onclick="toast('Pencarian tersedia di Katalog Digital')"
-          aria-label="Cari">⌕</button>
-</header>
+<!-- =========================
+     ADMIN
+========================= -->
 
-<main id="content">
-  <div class="loading">
-    <span class="spin">⟳</span>
-    Menghubungkan ke Google Sheet...
+<div id="admin" class="page">
+  <div class="container">
+
+    <div class="card">
+      <h2>⚙️ Administrasi & Inovasi</h2>
+      <div id="adminContent">
+        <div class="loading">
+          Memuat informasi...
+        </div>
+      </div>
+    </div>
+
   </div>
-</main>
+</div>
 
-<nav class="bottom">
-  <button id="nav-home" onclick="show('home')">
-    <span class="ico">⌂</span>Home
+<!-- =========================
+     EBOOK
+========================= -->
+
+<div id="ebook" class="page">
+  <div class="container">
+
+    <div class="card">
+      <h2>📖 E-Book</h2>
+      <p>Koleksi bacaan digital LENTERA.</p>
+    </div>
+
+    <div id="ebookContent">
+      <div class="loading">
+        Memuat e-book...
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================
+     CATALOG
+========================= -->
+
+<div id="catalog" class="page">
+  <div class="container">
+
+    <div class="card">
+      <h2>📚 Katalog Buku</h2>
+      <p>
+        Cari dan lihat koleksi buku LENTERA DWP SMAN 1 Ngronggot.
+      </p>
+    </div>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔎 Cari judul, penulis, kode..."
+        oninput="filterBooks()"
+      >
+    </div>
+
+    <div class="filter-row">
+
+      <select id="categoryFilter" onchange="filterBooks()">
+        <option value="">Semua Kategori</option>
+      </select>
+
+      <select id="statusFilter" onchange="filterBooks()">
+        <option value="">Semua Status</option>
+      </select>
+
+    </div>
+
+    <div id="catalogInfo"></div>
+
+    <div id="catalogContent">
+      <div class="loading">
+        Memuat katalog...
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================
+     DETAIL
+========================= -->
+
+<div id="detail" class="page">
+  <div class="container">
+
+    <button class="btn btn-secondary" onclick="show('catalog')">
+      ← Kembali ke Katalog
+    </button>
+
+    <div id="detailContent" style="margin-top:15px;"></div>
+
+  </div>
+</div>
+
+<!-- =========================
+     REKOMENDASI
+========================= -->
+
+<div id="rekom" class="page">
+  <div class="container">
+
+    <div class="card">
+      <h2>💡 Rekomendasi Digital</h2>
+      <p>
+        Sumber belajar dan literasi digital pilihan LENTERA.
+      </p>
+    </div>
+
+    <div id="rekomContent">
+      <div class="loading">
+        Memuat rekomendasi...
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================
+     BOTTOM NAV
+========================= -->
+
+<div class="bottom-nav">
+
+  <button class="nav-btn active" id="navHome" onclick="show('home')">
+    <span>🏠</span>
+    Home
   </button>
 
-  <button id="nav-ebook" onclick="show('ebook')">
-    <span class="ico">▣</span>E-Book
+  <button class="nav-btn" id="navEbook" onclick="show('ebook')">
+    <span>📖</span>
+    E-Book
   </button>
 
-  <button id="nav-catalog" onclick="show('catalog')">
-    <span class="ico">▤</span>Katalog
+  <button class="nav-btn" id="navCatalog" onclick="show('catalog')">
+    <span>📚</span>
+    Katalog
   </button>
 
-  <button id="nav-rekom" onclick="show('rekom')">
-    <span class="ico">♧</span>Rekomendasi
+  <button class="nav-btn" id="navRekom" onclick="show('rekom')">
+    <span>💡</span>
+    Rekomendasi
   </button>
-</nav>
 
 </div>
 
-<div class="toast" id="toast"></div>
 
 <script>
 
-/* =========================================================
+/* =====================================================
    PENGATURAN GOOGLE SHEET
-   ========================================================= */
+===================================================== */
 
 const SPREADSHEET_ID =
 "1P2Hcw8hiBF-7hoXSnNqgCeyOL7pHT85_CSfAlJmgGqI";
 
 const SHEETS = {
+
   books: "database buku",
+
   info: "pusat informasi",
+
   admin: "admin inovasi",
-  ebooks: "ebook",
+
+  ebook: "ebook",
+
   rekom: "rekomendasi",
+
   petunjuk: "petunjuk",
+
   pilihan: "daftar pilihan"
+
 };
 
 
-/* =========================================================
+/* =====================================================
    DATA WEBSITE
-   ========================================================= */
+===================================================== */
 
-let DATA = {
+const DATA = {
+
   books: [],
+
+  info: [],
+
   admin: [],
+
   ebooks: [],
+
   rekom: [],
-  info: {},
+
   petunjuk: "",
-  pilihan: {
-    kategori: [],
-    status: []
-  }
+
+  categories: [],
+
+  statuses: [],
+
+  errors: {}
+
 };
 
-let current = 'home';
 
-
-/* =========================================================
-   FUNGSI DASAR
-   ========================================================= */
-
-function esc(s){
-  return String(s ?? '').replace(
-    /[&<>"']/g,
-    m => ({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#039;'
-    }[m])
-  );
-}
-
-
-function toast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.style.display='block';
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer=setTimeout(()=>{
-    t.style.display='none';
-  },1800);
-}
-
-
-function setActive(id){
-  document
-    .querySelectorAll('.bottom button')
-    .forEach(x=>x.classList.remove('active'));
-
-  const b=document.getElementById('nav-'+id);
-
-  if(b)b.classList.add('active');
-}
-
-
-/* =========================================================
-   MEMBACA GOOGLE SHEET
-   ========================================================= */
+/* =====================================================
+   AMBIL DATA GOOGLE SHEET
+===================================================== */
 
 async function getSheet(sheetName){
 
   const url =
-    'https://docs.google.com/spreadsheets/d/' +
+    "https://docs.google.com/spreadsheets/d/" +
     SPREADSHEET_ID +
-    '/gviz/tq?tqx=out:json&sheet=' +
-    encodeURIComponent(sheetName);
+    "/gviz/tq" +
+    "?tqx=out:json" +
+    "&headers=1" +
+    "&sheet=" +
+    encodeURIComponent(sheetName) +
+    "&tq=" +
+    encodeURIComponent("select *");
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    method:"GET",
+    cache:"no-store"
+  });
 
   if(!response.ok){
     throw new Error(
-      'Google Sheet tidak dapat diakses (' +
-      response.status +
-      ')'
+      "HTTP " + response.status
     );
   }
 
   const text = await response.text();
 
-  /*
-   Google Visualization mengembalikan:
-   google.visualization.Query.setResponse({...})
-  */
+  const first = text.indexOf("{");
+  const last = text.lastIndexOf("}");
 
-  const start = text.indexOf('{');
-  const end = text.lastIndexOf('}');
-
-  if(start === -1 || end === -1){
+  if(first === -1 || last === -1){
     throw new Error(
-      'Format data dari sheet "' +
-      sheetName +
-      '" tidak dikenali.'
+      "Format data Google Sheet tidak dikenali."
     );
   }
 
   const json = JSON.parse(
-    text.substring(start,end+1)
+    text.substring(first,last + 1)
   );
 
-  if(!json.table){
+  if(json.status === "error"){
     throw new Error(
-      'Sheet "' +
-      sheetName +
-      '" tidak dapat dibaca.'
+      json.errors &&
+      json.errors[0] &&
+      json.errors[0].detailed_message
+      ? json.errors[0].detailed_message
+      : "Google Sheet mengembalikan error."
     );
   }
 
-  const cols = json.table.cols.map(
-    c => String(c.label || '').trim()
-  );
+  if(
+    !json.table ||
+    !json.table.cols
+  ){
+    throw new Error(
+      "Kolom data tidak ditemukan."
+    );
+  }
 
-  const rows = json.table.rows || [];
+  const headers =
+    json.table.cols.map(
+      col =>
+        String(col.label || "").trim()
+    );
 
-  return rows.map(row=>{
+  const rows =
+    (json.table.rows || []).map(
+      row => {
 
-    const obj={};
+        const obj = {};
 
-    cols.forEach((header,index)=>{
+        headers.forEach(
+          (header,index) => {
 
-      if(!header)return;
+            let value = "";
 
-      const cell =
-        row.c &&
-        row.c[index];
+            if(
+              row.c &&
+              row.c[index] &&
+              row.c[index].v !== null &&
+              row.c[index].v !== undefined
+            ){
+              value =
+                String(
+                  row.c[index].v
+                ).trim();
+            }
 
-      let value='';
+            obj[header] = value;
 
-      if(cell){
+          }
+        );
 
-        if(cell.v !== null &&
-           cell.v !== undefined){
+        return obj;
 
-          value=cell.v;
-        }
-
-        else if(cell.f !== null &&
-                cell.f !== undefined){
-
-          value=cell.f;
-        }
       }
+    );
 
-      obj[header]=String(value ?? '').trim();
+  return {
+    headers,
+    rows
+  };
 
-    });
-
-    return obj;
-
-  }).filter(row =>
-    Object.values(row).some(v => String(v).trim() !== '')
-  );
 }
 
 
-/* =========================================================
-   MEMUAT SEMUA DATA
-   ========================================================= */
+/* =====================================================
+   MENCARI NILAI KOLOM
+===================================================== */
+
+function val(row, names){
+
+  if(!row){
+    return "";
+  }
+
+  const keys =
+    Object.keys(row);
+
+  for(
+    const name of names
+  ){
+
+    const wanted =
+      String(name)
+      .trim()
+      .toLowerCase();
+
+    const found =
+      keys.find(
+        key =>
+          String(key)
+          .trim()
+          .toLowerCase() === wanted
+      );
+
+    if(
+      found !== undefined
+    ){
+
+      return String(
+        row[found] ?? ""
+      ).trim();
+
+    }
+
+  }
+
+  return "";
+
+}
+
+
+/* =====================================================
+   LOAD SEMUA DATA
+   SETIAP SHEET BERDIRI SENDIRI
+===================================================== */
 
 async function loadData(){
 
-  try{
+  const results = {};
 
-    const [
-      books,
-      infoRows,
-      admin,
-      ebooks,
-      rekom,
-      petunjukRows,
-      pilihan
-    ] = await Promise.all([
+  DATA.errors = {};
 
-      getSheet(SHEETS.books),
+  for(
+    const key of Object.keys(SHEETS)
+  ){
 
-      getSheet(SHEETS.info),
+    try{
 
-      getSheet(SHEETS.admin),
+      results[key] =
+        await getSheet(
+          SHEETS[key]
+        );
 
-      getSheet(SHEETS.ebooks),
+    }catch(error){
 
-      getSheet(SHEETS.rekom),
+      console.error(
+        "Gagal memuat sheet:",
+        SHEETS[key],
+        error
+      );
 
-      getSheet(SHEETS.petunjuk),
+      DATA.errors[key] =
+        error.message ||
+        String(error);
 
-      getSheet(SHEETS.pilihan)
-
-    ]);
-
-
-    /* DATABASE BUKU */
-
-    DATA.books = books.map(b=>({
-
-      "No": b["No"] || "",
-      "Kode Buku": b["Kode Buku"] || "",
-      "Judul Buku": b["Judul Buku"] || "",
-      "Penulis": b["Penulis"] || "",
-      "Penerbit": b["Penerbit"] || "",
-      "Tahun": b["Tahun"] || "",
-      "Kategori": b["Kategori"] || "",
-      "Status": b["Status"] || ""
-
-    }));
-
-
-    /* PUSAT INFORMASI */
-
-    DATA.info={};
-
-    infoRows.forEach(row=>{
-
-      const key =
-        String(row["kunci"] || '')
-        .trim()
-        .toUpperCase();
-
-      const value =
-        String(row["nilai"] || '').trim();
-
-      if(key){
-        DATA.info[key]=value;
-      }
-
-    });
-
-
-    /* ADMIN INOVASI */
-
-    DATA.admin = admin.map((row,index)=>({
-
-      Judul:
-        row["judul"] ||
-        row["Judul"] ||
-        "",
-
-      /*
-       Karena sheet Anda saat ini hanya mempunyai
-       kolom judul, isi akan menggunakan judul.
-       Jika nanti ingin menambahkan isi,
-       kita bisa menambah kolomnya.
-      */
-
-      Isi:
-        row["isi"] ||
-        row["Isi"] ||
-        "",
-
-      Icon:
-        row["icon"] ||
-        row["Icon"] ||
-        ['📚','📋','📖','💡'][index % 4]
-
-    })).filter(r=>r.Judul);
-
-
-    /* E-BOOK */
-
-    DATA.ebooks = ebooks.map(row=>({
-
-      Judul:
-        row["judul"] ||
-        row["Judul"] ||
-        "",
-
-      Deskripsi:
-        row["deskripsi"] ||
-        row["Deskripsi"] ||
-        "",
-
-      Link:
-        row["link"] ||
-        row["Link"] ||
-        "",
-
-      Icon:
-        row["icon"] ||
-        row["Icon"] ||
-        "📚"
-
-    })).filter(r=>r.Judul);
-
-
-    /* REKOMENDASI */
-
-    DATA.rekom = rekom.map(row=>({
-
-      Judul:
-        row["judul"] ||
-        row["Judul"] ||
-        "",
-
-      Deskripsi:
-        row["deskripsi"] ||
-        row["Deskripsi"] ||
-        "",
-
-      Link:
-        row["link"] ||
-        row["Link"] ||
-        "",
-
-      Kategori:
-        row["kategori"] ||
-        row["Kategori"] ||
-        ""
-
-    })).filter(r=>r.Judul);
-
-
-    /* PETUNJUK */
-
-    DATA.petunjuk =
-      petunjukRows
-        .map(row =>
-          Object.values(row)
-            .find(v => String(v).trim() !== '') || ''
-        )
-        .join('\n');
-
-
-    /* DAFTAR PILIHAN */
-
-    DATA.pilihan={
-      kategori:[],
-      status:[]
-    };
-
-    pilihan.forEach(row=>{
-
-      const kategori =
-        String(
-          row["kategori"] ||
-          row["Kategori"] ||
-          ''
-        ).trim();
-
-      const status =
-        String(
-          row["status"] ||
-          row["Status"] ||
-          ''
-        ).trim();
-
-      if(kategori &&
-         !DATA.pilihan.kategori.includes(kategori)){
-
-        DATA.pilihan.kategori.push(kategori);
-
-      }
-
-      if(status &&
-         !DATA.pilihan.status.includes(status)){
-
-        DATA.pilihan.status.push(status);
-
-      }
-
-    });
-
-
-    /*
-     Jika daftar pilihan kosong,
-     kategori/status tetap dibuat dari
-     database buku.
-    */
-
-    if(DATA.pilihan.kategori.length===0){
-
-      DATA.pilihan.kategori =
-        [...new Set(
-          DATA.books
-            .map(b=>b.Kategori)
-            .filter(Boolean)
-        )];
+      results[key] = {
+        headers:[],
+        rows:[]
+      };
 
     }
-
-
-    if(DATA.pilihan.status.length===0){
-
-      DATA.pilihan.status =
-        [...new Set(
-          DATA.books
-            .map(b=>b.Status)
-            .filter(Boolean)
-        )];
-
-    }
-
-
-    DATA.pilihan.kategori.sort(
-      (a,b)=>a.localeCompare(b)
-    );
-
-    DATA.pilihan.status.sort(
-      (a,b)=>a.localeCompare(b)
-    );
-
-
-    console.log('Data LENTERA berhasil dimuat:',DATA);
-
-    home();
 
   }
 
-  catch(error){
 
-    console.error(error);
+  /* =========================
+     DATABASE BUKU
+  ========================= */
 
-    document.getElementById('content').innerHTML=`
+  DATA.books =
+    results.books.rows.map(
+      row => ({
 
-      <div class="error-box">
+        no:
+          val(row,["No"]),
 
-        <b>⚠️ Data LENTERA belum dapat dimuat.</b>
+        kode:
+          val(row,[
+            "Kode Buku",
+            "kode buku"
+          ]),
 
-        <br><br>
+        judul:
+          val(row,[
+            "Judul Buku",
+            "judul buku",
+            "judul"
+          ]),
 
-        Website berhasil dibuka, tetapi belum dapat
-        mengambil data dari Google Sheet.
+        penulis:
+          val(row,[
+            "Penulis",
+            "penulis"
+          ]),
 
-        <br><br>
+        penerbit:
+          val(row,[
+            "Penerbit",
+            "penerbit"
+          ]),
 
-        Pastikan Google Sheet sudah disetel:
+        tahun:
+          val(row,[
+            "Tahun",
+            "tahun"
+          ]),
 
-        <br>
-        <b>Bagikan → Akses umum →
-        Siapa saja yang memiliki link →
-        Pelihat</b>
+        kategori:
+          val(row,[
+            "Kategori",
+            "kategori"
+          ]),
 
-        <br><br>
+        status:
+          val(row,[
+            "Status",
+            "status"
+          ])
 
-        Setelah itu muat ulang halaman.
+      })
+    )
+    .filter(
+      book =>
+        book.judul ||
+        book.kode
+    );
 
-        <br><br>
 
-        <small>
-        Detail teknis: ${esc(error.message)}
-        </small>
+  /* =========================
+     PUSAT INFORMASI
+  ========================= */
 
+  DATA.info =
+    results.info.rows.map(
+      row => ({
+
+        kunci:
+          val(row,[
+            "kunci",
+            "Kunci"
+          ]),
+
+        nilai:
+          val(row,[
+            "nilai",
+            "Nilai"
+          ])
+
+      })
+    )
+    .filter(
+      item =>
+        item.kunci ||
+        item.nilai
+    );
+
+
+  /* =========================
+     ADMIN INOVASI
+  ========================= */
+
+  DATA.admin =
+    results.admin.rows.map(
+      row => ({
+
+        judul:
+          val(row,[
+            "judul",
+            "Judul"
+          ]),
+
+        isi:
+          val(row,[
+            "isi",
+            "Isi",
+            "deskripsi",
+            "Deskripsi"
+          ]),
+
+        icon:
+          val(row,[
+            "icon",
+            "Icon",
+            "ikon",
+            "Ikon"
+          ])
+
+      })
+    )
+    .filter(
+      item =>
+        item.judul ||
+        item.isi
+    );
+
+
+  /* =========================
+     EBOOK
+  ========================= */
+
+  DATA.ebooks =
+    results.ebook.rows.map(
+      row => ({
+
+        judul:
+          val(row,[
+            "judul",
+            "Judul"
+          ]),
+
+        deskripsi:
+          val(row,[
+            "deskripsi",
+            "Deskripsi"
+          ]),
+
+        link:
+          val(row,[
+            "link",
+            "Link",
+            "url",
+            "URL"
+          ]),
+
+        icon:
+          val(row,[
+            "icon",
+            "Icon",
+            "ikon",
+            "Ikon"
+          ])
+
+      })
+    )
+    .filter(
+      item =>
+        item.judul ||
+        item.link
+    );
+
+
+  /* =========================
+     REKOMENDASI
+  ========================= */
+
+  DATA.rekom =
+    results.rekom.rows.map(
+      row => ({
+
+        judul:
+          val(row,[
+            "judul",
+            "Judul"
+          ]),
+
+        deskripsi:
+          val(row,[
+            "deskripsi",
+            "Deskripsi"
+          ]),
+
+        link:
+          val(row,[
+            "link",
+            "Link",
+            "url",
+            "URL"
+          ]),
+
+        kategori:
+          val(row,[
+            "kategori",
+            "Kategori"
+          ])
+
+      })
+    )
+    .filter(
+      item =>
+        item.judul ||
+        item.link
+    );
+
+
+  /* =========================
+     PETUNJUK
+  ========================= */
+
+  DATA.petunjuk =
+    results.petunjuk.rows
+      .map(
+        row =>
+          Object.values(row)
+            .map(v =>
+              String(v || "").trim()
+            )
+            .find(v => v)
+      )
+      .find(v => v) || "";
+
+
+  /* =========================
+     KATEGORI & STATUS
+  ========================= */
+
+  const pilihanRows =
+    results.pilihan.rows;
+
+  DATA.categories =
+    pilihanRows
+      .map(
+        row =>
+          val(row,[
+            "kategori",
+            "Kategori"
+          ])
+      )
+      .filter(Boolean);
+
+  DATA.statuses =
+    pilihanRows
+      .map(
+        row =>
+          val(row,[
+            "status",
+            "Status"
+          ])
+      )
+      .filter(Boolean);
+
+
+  /* Jika sheet daftar pilihan kosong,
+     ambil dari database buku */
+
+  if(DATA.categories.length === 0){
+
+    DATA.categories =
+      DATA.books
+        .map(
+          book => book.kategori
+        )
+        .filter(Boolean);
+
+  }
+
+  if(DATA.statuses.length === 0){
+
+    DATA.statuses =
+      DATA.books
+        .map(
+          book => book.status
+        )
+        .filter(Boolean);
+
+  }
+
+
+  DATA.categories =
+    [...new Set(
+      DATA.categories
+    )]
+    .sort();
+
+
+  DATA.statuses =
+    [...new Set(
+      DATA.statuses
+    )]
+    .sort();
+
+
+  /* =========================
+     RENDER
+  ========================= */
+
+  renderHome();
+
+  renderAdmin();
+
+  renderEbook();
+
+  renderCatalog();
+
+  renderRekom();
+
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function renderHome(){
+
+  const info =
+    document.getElementById(
+      "homeInfo"
+    );
+
+  if(DATA.petunjuk){
+
+    info.textContent =
+      DATA.petunjuk;
+
+  }else{
+
+    info.textContent =
+      "Selamat datang di Pusat Informasi Digital LENTERA.";
+
+  }
+
+
+  document.getElementById(
+    "homeDataInfo"
+  ).innerHTML =
+
+    `<div class="data-info">
+      📚 Katalog tersedia:
+      <b>${DATA.books.length}</b> buku
+    </div>`;
+
+}
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+function renderAdmin(){
+
+  const el =
+    document.getElementById(
+      "adminContent"
+    );
+
+  if(DATA.admin.length === 0){
+
+    el.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">⚙️</div>
+        <p>
+          Informasi administrasi dan inovasi
+          belum tersedia.
+        </p>
       </div>
-
     `;
 
+    return;
+
   }
 
+
+  el.innerHTML =
+    DATA.admin.map(
+      item => `
+
+        <div class="resource-item">
+
+          <div class="resource-icon">
+            ${item.icon || "⚙️"}
+          </div>
+
+          <div class="resource-content">
+
+            <h3>
+              ${escapeHtml(item.judul)}
+            </h3>
+
+            <p>
+              ${escapeHtml(item.isi)}
+            </p>
+
+          </div>
+
+        </div>
+
+      `
+    ).join("");
+
 }
 
 
-/* =========================================================
-   NAVIGASI
-   ========================================================= */
+/* =====================================================
+   EBOOK
+===================================================== */
 
-function show(page){
+function renderEbook(){
 
-  current=page;
+  const el =
+    document.getElementById(
+      "ebookContent"
+    );
 
-  setActive(
-    page==='catalog'
-      ?'catalog'
-      :page==='ebook'
-      ?'ebook'
-      :page==='rekom'
-      ?'rekom'
-      :'home'
-  );
+  if(DATA.ebooks.length === 0){
 
-  if(page==='home')home();
-  if(page==='admin')adminPage();
-  if(page==='ebook')ebookPage();
-  if(page==='catalog')catalogPage();
-  if(page==='rekom')rekomPage();
-
-}
-
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-function home(){
-
-  const i=DATA.info||{};
-
-  document.getElementById('content').innerHTML=`
-
-  <section class="hero">
-
-    <div class="hero-image">
-
-      <div>
-
-        <h1>${esc(i.NAMA||'LENTERA')}</h1>
-
+    el.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">📖</div>
         <p>
-          ${esc(i.SEKOLAH||'DWP SMAN 1 Ngronggot')}
-          <br>
-          ${esc(i.SUBJUDUL||'Pusat Informasi Digital')}
+          Belum ada e-book yang tersedia.
         </p>
-
       </div>
+    `;
 
-    </div>
+    return;
 
-    <div class="hero-card">
-
-      <div class="welcome">
-        Selamat Datang di LENTERA
-      </div>
-
-      <div class="muted">
-        ${esc(i.DESKRIPSI||'Pojok Literasi Kreatif')}
-      </div>
-
-      <div class="grid">
-
-        <div class="menu-card"
-             onclick="show('home')">
-
-          <span class="ico">⌂</span>
-          Beranda
-
-        </div>
-
-        <div class="menu-card"
-             onclick="show('admin')">
-
-          <span class="ico">⚙</span>
-          Administrasi & Inovasi
-
-        </div>
-
-        <div class="menu-card"
-             onclick="show('ebook')">
-
-          <span class="ico">▣</span>
-          E-Book
-
-        </div>
-
-        <div class="menu-card"
-             onclick="show('catalog')">
-
-          <span class="ico">▤</span>
-          Katalog Digital
-
-        </div>
-
-        <div class="menu-card"
-             onclick="show('rekom')">
-
-          <span class="ico">♧</span>
-          Rekomendasi Digital
-
-        </div>
-
-      </div>
-
-      <div class="quote" style="margin-top:14px">
-
-        📚 Membaca hari ini,
-        untuk masa depan yang lebih baik.
-
-      </div>
-
-    </div>
-
-  </section>
-
-  `;
-
-}
+  }
 
 
-/* =========================================================
-   ADMINISTRASI & INOVASI
-   ========================================================= */
+  el.innerHTML =
+    DATA.ebooks.map(
+      item => `
 
-function adminPage(){
+        <div class="resource-item">
 
-  const rows=DATA.admin||[];
+          <div class="resource-icon">
+            ${item.icon || "📖"}
+          </div>
 
-  document.getElementById('content').innerHTML=`
+          <div class="resource-content">
 
-  <section class="section">
+            <h3>
+              ${escapeHtml(item.judul)}
+            </h3>
 
-    <button class="btn secondary back"
-            onclick="show('home')">
-      ← Kembali
-    </button>
+            <p>
+              ${escapeHtml(item.deskripsi)}
+            </p>
 
-    <h2 class="section-title">
-      ⚙️ Administrasi & Inovasi
-    </h2>
-
-    <div class="section-sub">
-      Informasi, program, dan inovasi LENTERA.
-    </div>
-
-    ${
-      rows.length
-      ? rows.map((r,idx)=>`
-
-        <div class="card">
-
-          <div class="card-row">
-
-            <div class="card-icon">
-              ${esc(
-                r.Icon ||
-                ['📚','📋','📖','💡'][idx%4]
-              )}
-            </div>
-
-            <div>
-
-              <h3>
-                ${esc(r.Judul)}
-              </h3>
-
-              ${
-                r.Isi
-                ? `<p>${esc(r.Isi)}</p>`
-                : ''
-              }
-
-            </div>
+            ${
+              item.link
+              ?
+              `
+                <a
+                  class="btn"
+                  href="${safeUrl(item.link)}"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  📖 Buka E-Book
+                </a>
+              `
+              :
+              ""
+            }
 
           </div>
 
         </div>
 
-      `).join('')
-      : `<div class="empty">
-          Belum ada data Administrasi & Inovasi.
-        </div>`
-    }
-
-  </section>
-
-  `;
+      `
+    ).join("");
 
 }
 
 
-/* =========================================================
-   E-BOOK
-   ========================================================= */
-
-function ebookPage(){
-
-  document.getElementById('content').innerHTML=`
-
-  <section class="section">
-
-    <button class="btn secondary back"
-            onclick="show('home')">
-      ← Kembali
-    </button>
-
-    <h2 class="section-title">
-      📚 E-Book
-    </h2>
-
-    <div class="section-sub">
-      Temukan berbagai sumber bacaan digital terpercaya.
-    </div>
-
-    ${
-      (DATA.ebooks||[]).length
-
-      ? DATA.ebooks.map(r=>`
-
-        <div class="card">
-
-          <div class="card-row">
-
-            <div class="card-icon">
-              ${esc(r.Icon||'📚')}
-            </div>
-
-            <div style="flex:1">
-
-              <h3>
-                ${esc(r.Judul)}
-              </h3>
-
-              <p>
-                ${esc(r.Deskripsi)}
-              </p>
-
-              ${
-                r.Link
-                ? `<div class="actions">
-
-                    <a class="btn"
-                       href="${esc(r.Link)}"
-                       target="_blank"
-                       rel="noopener">
-
-                      Buka E-Book ↗
-
-                    </a>
-
-                   </div>`
-                : ''
-              }
-
-            </div>
-
-          </div>
-
-        </div>
-
-      `).join('')
-
-      : `<div class="empty">
-          Belum ada e-book.
-        </div>`
-    }
-
-  </section>
-
-  `;
-
-}
-
-
-/* =========================================================
+/* =====================================================
    KATALOG
-   ========================================================= */
+===================================================== */
 
-function catalogPage(){
+function renderCatalog(){
 
-  const cats =
-    (
-      DATA.pilihan &&
-      DATA.pilihan.kategori &&
-      DATA.pilihan.kategori.length
-    )
-    ? DATA.pilihan.kategori
-    : [...new Set(
-        DATA.books
-          .map(b=>b.Kategori)
-          .filter(Boolean)
-      )];
+  const category =
+    document.getElementById(
+      "categoryFilter"
+    );
 
-  const stats =
-    (
-      DATA.pilihan &&
-      DATA.pilihan.status &&
-      DATA.pilihan.status.length
-    )
-    ? DATA.pilihan.status
-    : [...new Set(
-        DATA.books
-          .map(b=>b.Status)
-          .filter(Boolean)
-      )];
+  const status =
+    document.getElementById(
+      "statusFilter"
+    );
 
 
-  document.getElementById('content').innerHTML=`
+  category.innerHTML =
+    `<option value="">
+      Semua Kategori
+    </option>` +
 
-  <section class="section">
-
-    <button class="btn secondary back"
-            onclick="show('home')">
-
-      ← Kembali
-
-    </button>
-
-    <h2 class="section-title">
-      📖 Katalog Digital
-    </h2>
-
-    <div class="section-sub">
-
-      Cari buku berdasarkan judul,
-      penulis, penerbit, atau kategori.
-
-    </div>
-
-    <div class="searchbox">
-
-      <input
-        id="q"
-        placeholder="🔍 Cari judul, penulis..."
-        oninput="filterBooks()">
-
-      <button class="btn"
-              onclick="filterBooks()">
-
-        Cari
-
-      </button>
-
-    </div>
-
-    <div class="selects">
-
-      <select id="cat"
-              onchange="filterBooks()">
-
-        <option value="">
-          Semua Kategori
-        </option>
-
-        ${
-          cats.map(c=>
-            `<option value="${esc(c)}">
-              ${esc(c)}
-            </option>`
-          ).join('')
-        }
-
-      </select>
+    DATA.categories.map(
+      item =>
+        `<option value="${escapeAttr(item)}">
+          ${escapeHtml(item)}
+        </option>`
+    ).join("");
 
 
-      <select id="stat"
-              onchange="filterBooks()">
+  status.innerHTML =
+    `<option value="">
+      Semua Status
+    </option>` +
 
-        <option value="">
-          Semua Status
-        </option>
+    DATA.statuses.map(
+      item =>
+        `<option value="${escapeAttr(item)}">
+          ${escapeHtml(item)}
+        </option>`
+    ).join("");
 
-        ${
-          stats.map(s=>
-            `<option value="${esc(s)}">
-              ${esc(s)}
-            </option>`
-          ).join('')
-        }
-
-      </select>
-
-    </div>
-
-    <div id="results"></div>
-
-  </section>
-
-  `;
 
   filterBooks();
 
 }
 
 
-/* =========================================================
+/* =====================================================
    FILTER BUKU
-   ========================================================= */
+===================================================== */
 
 function filterBooks(){
 
-  const q=
+  const search =
     (
-      document.getElementById('q')?.value||''
-    ).toLowerCase().trim();
-
-  const cat=
-    document.getElementById('cat')?.value||'';
-
-  const stat=
-    document.getElementById('stat')?.value||'';
-
-
-  const arr=DATA.books.filter(b=>{
-
-    const text=[
-      b['Judul Buku'],
-      b.Penulis,
-      b.Penerbit,
-      b.Kategori,
-      b['Kode Buku']
-    ]
-    .join(' ')
+      document.getElementById(
+        "searchInput"
+      )?.value || ""
+    )
+    .trim()
     .toLowerCase();
 
-    return (
-      (!q || text.includes(q)) &&
-      (!cat || b.Kategori===cat) &&
-      (!stat || b.Status===stat)
+
+  const category =
+    document.getElementById(
+      "categoryFilter"
+    )?.value || "";
+
+
+  const status =
+    document.getElementById(
+      "statusFilter"
+    )?.value || "";
+
+
+  const filtered =
+    DATA.books.filter(
+      book => {
+
+        const text = (
+
+          book.kode + " " +
+          book.judul + " " +
+          book.penulis + " " +
+          book.penerbit + " " +
+          book.tahun + " " +
+          book.kategori + " " +
+          book.status
+
+        ).toLowerCase();
+
+
+        const cocokSearch =
+          !search ||
+          text.includes(search);
+
+
+        const cocokKategori =
+          !category ||
+          book.kategori === category;
+
+
+        const cocokStatus =
+          !status ||
+          book.status === status;
+
+
+        return (
+          cocokSearch &&
+          cocokKategori &&
+          cocokStatus
+        );
+
+      }
     );
 
-  });
+
+  const el =
+    document.getElementById(
+      "catalogContent"
+    );
 
 
-  const shown=arr.slice(0,30);
+  document.getElementById(
+    "catalogInfo"
+  ).innerHTML =
+
+    `<div class="data-info">
+      Menampilkan
+      <b>${filtered.length}</b>
+      dari
+      <b>${DATA.books.length}</b>
+      buku
+    </div>`;
 
 
-  const results=
-    document.getElementById('results');
+  if(filtered.length === 0){
 
-  if(!results)return;
+    el.innerHTML = `
+      <div class="empty">
+
+        <div class="empty-icon">
+          🔎
+        </div>
+
+        <p>
+          Buku yang dicari belum ditemukan.
+        </p>
+
+      </div>
+    `;
+
+    return;
+
+  }
 
 
-  results.innerHTML=
+  el.innerHTML =
+    filtered.map(
+      (book,index) => `
 
-    `<div class="count">
-      Menampilkan ${shown.length}
-      dari ${arr.length} buku yang sesuai.
-    </div>`
+        <div
+          class="book-item"
+          onclick="detailByIndex(${DATA.books.indexOf(book)})"
+        >
 
-    +
+          <div class="book-code">
+            ${escapeHtml(book.kode || "LENTERA")}
+          </div>
 
-    (
-
-      shown.length
-
-      ?
-
-      shown.map(b=>`
-
-        <div class="book-card">
-
-          <div class="book-cover">
-
-            ${esc(
-              b['Judul Buku']
-            ).slice(0,26)}
-
+          <div class="book-title">
+            ${escapeHtml(book.judul || "Tanpa Judul")}
           </div>
 
           <div class="book-info">
 
-            <div class="book-title">
+            👤 ${escapeHtml(book.penulis || "-")}
+            <br>
 
-              ${esc(b['Judul Buku'])}
+            🏢 ${escapeHtml(book.penerbit || "-")}
+            <br>
 
-            </div>
+            📅 ${escapeHtml(book.tahun || "-")}
+            <br>
 
-            <div class="book-meta">
-
-              ${esc(b.Penulis)}
-
-              <br>
-
-              Kategori:
-              ${esc(b.Kategori)}
-
-              <br>
-
-              Status:
-
-              <span class="status">
-
-                ${esc(b.Status||'')}
-
-              </span>
-
-            </div>
-
-            <div class="actions">
-
-              <button
-                class="btn"
-                onclick='detail(${JSON.stringify(b)})'>
-
-                Detail
-
-              </button>
-
-            </div>
+            🏷️ ${escapeHtml(book.kategori || "-")}
 
           </div>
 
+          ${
+            book.status
+            ?
+            `
+              <span class="book-status">
+                ${escapeHtml(book.status)}
+              </span>
+            `
+            :
+            ""
+          }
+
         </div>
 
-      `).join('')
-
-      :
-
-      `<div class="empty">
-
-        📚 Buku tidak ditemukan.
-
-        <br>
-
-        Coba kata kunci atau kategori lain.
-
-      </div>`
-
-    );
+      `
+    ).join("");
 
 }
 
 
-/* =========================================================
+/* =====================================================
    DETAIL BUKU
-   ========================================================= */
+===================================================== */
 
-function detail(b){
+function detailByIndex(index){
 
-  document.getElementById('content').innerHTML=`
+  const book =
+    DATA.books[index];
 
-  <section class="section">
+  if(!book){
+    return;
+  }
 
-    <button
-      class="btn secondary back"
-      onclick="catalogPage()">
 
-      ← Kembali ke Katalog
+  document.getElementById(
+    "detailContent"
+  ).innerHTML = `
 
-    </button>
+    <div class="card">
 
-    <div class="detail-head">
-
-      <div class="detail-cover">
-
-        ${esc(b['Judul Buku'])}
-
+      <div class="detail-title">
+        ${escapeHtml(book.judul || "Detail Buku")}
       </div>
 
-      <div>
-
-        <div class="detail-title">
-
-          ${esc(b['Judul Buku'])}
-
+      <div class="detail-row">
+        <div class="detail-label">
+          Kode Buku
         </div>
 
-        <div class="detail-author">
+        <div class="detail-value">
+          ${escapeHtml(book.kode || "-")}
+        </div>
+      </div>
 
-          ${esc(b.Penulis)}
-
+      <div class="detail-row">
+        <div class="detail-label">
+          Penulis
         </div>
 
+        <div class="detail-value">
+          ${escapeHtml(book.penulis || "-")}
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">
+          Penerbit
+        </div>
+
+        <div class="detail-value">
+          ${escapeHtml(book.penerbit || "-")}
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">
+          Tahun Terbit
+        </div>
+
+        <div class="detail-value">
+          ${escapeHtml(book.tahun || "-")}
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">
+          Kategori
+        </div>
+
+        <div class="detail-value">
+          ${escapeHtml(book.kategori || "-")}
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">
+          Status
+        </div>
+
+        <div class="detail-value">
+          ${escapeHtml(book.status || "-")}
+        </div>
       </div>
 
     </div>
-
-    <div class="table">
-
-      <div class="tr">
-
-        <b>Kode Buku</b>
-
-        <span>${esc(b['Kode Buku'])}</span>
-
-      </div>
-
-      <div class="tr">
-
-        <b>Penulis</b>
-
-        <span>${esc(b.Penulis)}</span>
-
-      </div>
-
-      <div class="tr">
-
-        <b>Penerbit</b>
-
-        <span>${esc(b.Penerbit)}</span>
-
-      </div>
-
-      <div class="tr">
-
-        <b>Tahun</b>
-
-        <span>${esc(b.Tahun)}</span>
-
-      </div>
-
-      <div class="tr">
-
-        <b>Kategori</b>
-
-        <span>${esc(b.Kategori)}</span>
-
-      </div>
-
-      <div class="tr">
-
-        <b>Status</b>
-
-        <span class="status">
-
-          ${esc(b.Status)}
-
-        </span>
-
-      </div>
-
-    </div>
-
-  </section>
 
   `;
 
+
+  show("detail");
+
 }
 
 
-/* =========================================================
-   REKOMENDASI DIGITAL
-   ========================================================= */
+/* =====================================================
+   REKOMENDASI
+===================================================== */
 
-function rekomPage(){
+function renderRekom(){
 
-  document.getElementById('content').innerHTML=`
+  const el =
+    document.getElementById(
+      "rekomContent"
+    );
 
-  <section class="section">
 
-    <button
-      class="btn secondary back"
-      onclick="show('home')">
+  if(DATA.rekom.length === 0){
 
-      ← Kembali
+    el.innerHTML = `
+      <div class="empty">
 
-    </button>
+        <div class="empty-icon">
+          💡
+        </div>
 
-    <h2 class="section-title">
+        <p>
+          Belum ada rekomendasi digital.
+        </p>
 
-      💡 Rekomendasi Digital
+      </div>
+    `;
 
-    </h2>
+    return;
 
-    <div class="section-sub">
+  }
 
-      Manfaatkan berbagai platform digital
-      untuk menambah wawasan dan keterampilan.
 
-    </div>
+  el.innerHTML =
+    DATA.rekom.map(
+      item => `
 
-    ${
-      (DATA.rekom||[]).length
+        <div class="resource-item">
 
-      ?
+          <div class="resource-icon">
+            💡
+          </div>
 
-      DATA.rekom.map(r=>`
+          <div class="resource-content">
 
-        <div class="card">
+            <h3>
+              ${escapeHtml(item.judul)}
+            </h3>
 
-          <div class="card-row">
+            <p>
+              ${escapeHtml(item.deskripsi)}
+            </p>
 
-            <div class="card-icon">
-              💡
-            </div>
+            ${
+              item.kategori
+              ?
+              `
+                <span class="resource-category">
+                  ${escapeHtml(item.kategori)}
+                </span>
+              `
+              :
+              ""
+            }
 
-            <div style="flex:1">
+            ${
+              item.link
+              ?
+              `
+                <br>
 
-              <h3>
-                ${esc(r.Judul)}
-              </h3>
-
-              <p>
-                ${esc(r.Deskripsi)}
-              </p>
-
-              ${
-                r.Link
-
-                ?
-
-                `<div class="actions">
-
-                  <a
-                    class="btn"
-                    href="${esc(r.Link)}"
-                    target="_blank"
-                    rel="noopener">
-
-                    Kunjungi ↗
-
-                  </a>
-
-                </div>`
-
-                : ''
-
-              }
-
-            </div>
+                <a
+                  class="btn"
+                  href="${safeUrl(item.link)}"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  🔗 Buka Sumber
+                </a>
+              `
+              :
+              ""
+            }
 
           </div>
 
         </div>
 
-      `).join('')
+      `
+    ).join("");
 
-      :
+}
 
-      `<div class="empty">
 
-        Belum ada rekomendasi digital.
+/* =====================================================
+   PINDAH HALAMAN
+===================================================== */
 
-      </div>`
+function show(page){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      el =>
+        el.classList.remove("active")
+    );
+
+
+  const target =
+    document.getElementById(page);
+
+
+  if(target){
+    target.classList.add("active");
+  }
+
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(
+      el =>
+        el.classList.remove("active")
+    );
+
+
+  if(page === "home"){
+    document
+      .getElementById("navHome")
+      ?.classList.add("active");
+  }
+
+  if(page === "ebook"){
+    document
+      .getElementById("navEbook")
+      ?.classList.add("active");
+  }
+
+  if(page === "catalog"){
+    document
+      .getElementById("navCatalog")
+      ?.classList.add("active");
+  }
+
+  if(page === "rekom"){
+    document
+      .getElementById("navRekom")
+      ?.classList.add("active");
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   KEAMANAN TEKS HTML
+===================================================== */
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return escapeHtml(value);
+
+}
+
+
+/* =====================================================
+   LINK AMAN
+===================================================== */
+
+function safeUrl(url){
+
+  const value =
+    String(url || "").trim();
+
+  if(
+    value.startsWith("https://") ||
+    value.startsWith("http://")
+  ){
+
+    return escapeAttr(value);
+
+  }
+
+  return "#";
+
+}
+
+
+/* =====================================================
+   MULAI WEBSITE
+===================================================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  async function(){
+
+    try{
+
+      await loadData();
+
+    }catch(error){
+
+      console.error(error);
+
+      document.getElementById(
+        "homeDataInfo"
+      ).innerHTML = `
+
+        <div class="error-box">
+
+          ⚠️ Website berhasil dibuka,
+          tetapi data Google Sheet belum dapat
+          dimuat.
+
+          <br><br>
+
+          Silakan coba refresh halaman.
+
+        </div>
+
+      `;
 
     }
 
-  </section>
-
-  `;
-
-}
-
-
-/* =========================================================
-   MULAI WEBSITE
-   ========================================================= */
-
-loadData();
+  }
+);
 
 </script>
 
